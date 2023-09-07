@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Игра - Вход/Регистрация</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+<div class="container">
+    <div class="background-image"></div>
+    <div class="login-form">
+        <form action="/login" method="POST">
+            <div class="custom-input">
+                <input type="text" name="username" placeholder="Логин">
+            </div>
+            <div class="custom-input">
+                <input type="password" name="password" placeholder="Пароль">
+            </div>
+            <div class="custom-button login-button">
+                <button type="submit">Войти</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="register-form">
+        <form action="/register" method="POST">
+            <div class="custom-input">
+                <input type="text" name="username" placeholder="Логин">
+            </div>
+            <div class="custom-input">
+                <input type="password" name="password" placeholder="Пароль">
+            </div>
+            <div class="custom-button register-button">
+                <button type="submit">Регистрация</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
