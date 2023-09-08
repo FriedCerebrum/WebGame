@@ -41,3 +41,6 @@ sysinfo.txt
 *.config
 *.kpp
 *.kpl
+
+# Visual Studio Code
+.vscode/
