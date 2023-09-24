@@ -1,0 +1,96 @@
+.screen {
+  width: 1920px;
+  height: 1080px;
+  background-color: #895a3c;
+  overflow: hidden;
+}
+
+.screen .overlap {
+  position: relative;
+  width: 2052px;
+  height: 1509px;
+  top: 51px;
+  left: 42px;
+}
+
+.screen .element {
+  position: absolute;
+  width: 1838px;
+  height: 988px;
+  top: 0;
+  left: 0;
+  background-color: #ab7d5c;
+  border-radius: 26px;
+}
+
+.screen .girl-main-character {
+  position: absolute;
+  width: 906px;
+  height: 1008px;
+  top: 21px;
+  left: 593px;
+  object-fit: cover;
+}
+
+.screen .view {
+  position: absolute;
+  width: 2029px;
+  height: 1501px;
+  top: 8px;
+  left: 23px;
+}
+
+.screen .overlap-group {
+  position: relative;
+  width: 1854px;
+  height: 1021px;
+  left: 1px;
+}
+
+.screen .text-wrapper {
+  position: absolute;
+  width: 967px;
+  top: 337px;
+  left: 50px;
+  -webkit-text-stroke: 5px #000000b2;
+  font-family: "Lexend Giga", Helvetica;
+  font-weight: 400;
+  color: #922913;
+  font-size: 64px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.screen .clash-of {
+  top: 504px;
+  left: 43px;
+  position: absolute;
+  width: 1189px;
+  height: 144px;
+}
+
+.screen .image {
+  position: absolute;
+  width: 1004px;
+  height: 1021px;
+  top: 0;
+  left: 850px;
+  object-fit: cover;
+}
+
+.screen .clash-of-heroes {
+  top: 427px;
+  left: 0;
+  position: absolute;
+  width: 1189px;
+  height: 144px;
+}
+
+.screen .img {
+  position: absolute;
+  width: 628px;
+  height: 108px;
+  top: 759px;
+  left: 138px;
+}
