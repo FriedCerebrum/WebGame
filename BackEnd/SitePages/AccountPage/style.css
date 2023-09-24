@@ -1,0 +1,255 @@
+.screen {
+  background-color: #895a3c;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.screen .overlap-wrapper {
+  background-color: #895a3c;
+  width: 1920px;
+  height: 1080px;
+}
+
+.screen .overlap {
+  position: relative;
+  width: 1844px;
+  height: 1048px;
+  top: 32px;
+  left: 49px;
+}
+
+.screen .element {
+  position: absolute;
+  width: 1269px;
+  height: 995px;
+  top: 53px;
+  left: 184px;
+  object-fit: cover;
+}
+
+.screen .view {
+  position: absolute;
+  width: 598px;
+  height: 659px;
+  top: 91px;
+  left: 1246px;
+  background-color: #d9d9d933;
+  border-radius: 48px;
+}
+
+.screen .div {
+  position: absolute;
+  width: 598px;
+  height: 57px;
+  top: 9px;
+  left: 1246px;
+  background-color: #d9d9d9b2;
+  border-radius: 19px;
+}
+
+.screen .overlap-group-wrapper {
+  position: absolute;
+  width: 470px;
+  height: 168px;
+  top: 803px;
+  left: 1353px;
+}
+
+.screen .overlap-group {
+  position: relative;
+  width: 468px;
+  height: 168px;
+  background-color: #b5351f;
+  border: 8px solid;
+  border-color: #000000b2;
+}
+
+.screen .text-wrapper {
+  position: absolute;
+  width: 333px;
+  top: 5px;
+  left: 64px;
+  -webkit-text-stroke: 5px #00000080;
+  font-family: "Lexend Giga", Helvetica;
+  font-weight: 400;
+  color: #d3b6af;
+  font-size: 100px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.screen .view-2 {
+  display: flex;
+  flex-direction: column;
+  width: 402px;
+  height: 758px;
+  align-items: flex-start;
+  gap: 19px;
+  position: absolute;
+  top: 220px;
+  left: 6px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.screen .rectangle {
+  position: relative;
+  width: 402px;
+  height: 158px;
+  background-color: #00000080;
+  border-radius: 36px;
+}
+
+.screen .rectangle-2 {
+  position: relative;
+  width: 402px;
+  height: 159px;
+  background-color: #88181880;
+  border-radius: 36px;
+}
+
+.screen .rectangle-3 {
+  position: relative;
+  width: 402px;
+  height: 159px;
+  background-color: #e7292980;
+  border-radius: 36px;
+}
+
+.screen .img {
+  position: relative;
+  width: 402px;
+  height: 159px;
+}
+
+.screen .div-wrapper {
+  position: absolute;
+  width: 443px;
+  height: 140px;
+  top: 0;
+  left: 0;
+}
+
+.screen .overlap-2 {
+  position: relative;
+  width: 445px;
+  height: 140px;
+}
+
+.screen .view-3 {
+  position: absolute;
+  width: 437px;
+  height: 140px;
+  top: 0;
+  left: 0;
+}
+
+.screen .overlap-group-2 {
+  position: relative;
+  height: 140px;
+}
+
+.screen .rectangle-4 {
+  position: absolute;
+  width: 436px;
+  height: 140px;
+  top: 0;
+  left: 0;
+  background-color: #99735b;
+  border-radius: 45px;
+}
+
+.screen .ellipse {
+  position: absolute;
+  width: 91px;
+  height: 86px;
+  top: 1px;
+  left: 0;
+}
+
+.screen .rectangle-5 {
+  position: absolute;
+  width: 405px;
+  height: 54px;
+  top: 1px;
+  left: 32px;
+  background-color: #caa893;
+  border-radius: 15px;
+}
+
+.screen .text-wrapper-2 {
+  position: absolute;
+  width: 345px;
+  top: 0;
+  left: 88px;
+  font-family: "Lexend Giga", Helvetica;
+  font-weight: 400;
+  color: #fff2e6;
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.screen .ellipse-2 {
+  position: absolute;
+  width: 72px;
+  height: 69px;
+  top: 6px;
+  left: 10px;
+  background-color: #fff2e6;
+  border-radius: 36px/34.5px;
+}
+
+.screen .view-4 {
+  position: absolute;
+  width: 354px;
+  height: 76px;
+  top: 61px;
+  left: 91px;
+}
+
+.screen .victories {
+  position: absolute;
+  width: 157px;
+  top: 0;
+  left: 0;
+  font-family: "Lexend Giga", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.screen .overlap-3 {
+  position: absolute;
+  width: 193px;
+  height: 76px;
+  top: 0;
+  left: 157px;
+}
+
+.screen .lesions {
+  position: absolute;
+  width: 193px;
+  top: 0;
+  left: 0;
+  font-family: "Lexend Giga", Helvetica;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 24px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.screen .line {
+  position: absolute;
+  width: 3px;
+  height: 54px;
+  top: 0;
+  left: 13px;
+}
