@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Serialization;
@@ -30,8 +31,22 @@ public class PlayerMovement : MonoBehaviour
         {
             crouch = false;
         }
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-        animator.SetBool("IsGround", controller.IsGrounded());
+        if (Mathf.Abs(horizontalMove) < 1f)
+        {
+            animator.SetBool("idle", true);
+        }
+        else
+        {
+            animator.SetBool("idle", false);
+        }
+        if (controller.IsGrounded() && Mathf.Abs(horizontalMove) == 0 && crouch == true )
+        {
+            animator.SetBool("crouch", true);
+        }
+        else
+        {
+            animator.SetBool("crouch", false);
+        }
     }
     private void FixedUpdate()
     {
