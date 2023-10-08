@@ -522,7 +522,7 @@ MonoBehaviour:
   target2: {fileID: 1916042299}
   smoothSpeed: 1
   zoomSpeed: 2
-  maxZoom: 50
+  maxZoom: 15
   minZoom: 10
   maxYOffset: 10
   centralPoint: {fileID: 1307913107}
