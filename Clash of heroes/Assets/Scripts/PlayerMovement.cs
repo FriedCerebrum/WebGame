@@ -7,20 +7,35 @@ public class PlayerMovement : MonoBehaviour
 
     public float runSpeed = 40f;
 
+    [SerializeField] private float startCrouchSpeed;
+
     public float horizontalMove = 0f;
 
     bool jump = false;
     bool crouch = false;
+    private void Start()
+    {
+        startCrouchSpeed = controller.m_CrouchSpeed;
+    }
 
     private void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
+        if (controller.IsGrounded())
+        {
+            controller.m_CrouchSpeed = 1;
+        }
+        else
+        {
+            controller.m_CrouchSpeed = startCrouchSpeed;
+        }
+
         if (Input.GetButtonDown("Jump"))
         {
             jump = true;
         }
-        if (Input.GetButtonDown("Crouch"))
+        if (Input.GetButtonDown("Crouch") && controller.IsGrounded())
         {
             crouch = true;
         } else if (Input.GetButtonUp("Crouch"))

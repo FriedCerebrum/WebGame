@@ -1101,6 +1101,7 @@ MonoBehaviour:
   controller: {fileID: 1639729768}
   animator: {fileID: 1639729769}
   runSpeed: 120
+  startCrouchSpeed: 0
   horizontalMove: 0
 --- !u!114 &1639729768
 MonoBehaviour:
