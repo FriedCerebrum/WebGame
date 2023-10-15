@@ -17,10 +17,13 @@ public class PlayerCombat : MonoBehaviour
     }
     void Attack()
     {
+        Debug.Log("Attack!");
         Collider2D[] hitEnemies =  Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+
         foreach(Collider2D enemy in hitEnemies)
         {
-            Debug.Log("We hit" + enemy.name);
+            Debug.Log("We hit " + enemy.name);
+            enemy.GetComponent<Entity>().TakeDamage(Random.Range(25, 35));
         }
     }
     private void OnDrawGizmosSelected()
