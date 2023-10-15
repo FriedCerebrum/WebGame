@@ -1,6 +1,6 @@
 from flask import Flask, render_template
 
-app = Flask(__name__, template_folder='../FrontEnd/SitePages', static_folder='../FrontEnd/SitePages')
+app = Flask(__name__, template_folder='../FrontEnd/SitePages', static_folder='../FrontEnd/SitePages/Static')
 
 @app.route("/")
 def index():
