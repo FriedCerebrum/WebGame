@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        if (controller.IsGrounded())
+        if (!controller.IsGrounded())
         {
             controller.m_CrouchSpeed = 1;
         }
