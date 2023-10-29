@@ -1630,6 +1630,7 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 256
+  attackSpeed: 0.3
 --- !u!1 &1815583675
 GameObject:
   m_ObjectHideFlags: 0
