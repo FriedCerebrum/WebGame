@@ -74,3 +74,11 @@ hooks/
 lfs/
 accounts.db
 profiles.db
+
+
+# FireBase
+/.firebaserc
+/firebase.json
+/.firebase/
+/functions/package-lock.json
+/functions/node_modules/

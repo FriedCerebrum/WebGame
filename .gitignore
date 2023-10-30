@@ -41,3 +41,8 @@ sysinfo.txt
 *.config
 *.kpp
 *.kpl
+
+#Frameworks
+firebase_unity_sdk/
+Firebase/
+Clash of heroes/Assets/Firebase/

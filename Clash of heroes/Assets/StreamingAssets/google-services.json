@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "766485453603",
+    "firebase_url": "https://clashofheroes-a5347-default-rtdb.firebaseio.com",
+    "project_id": "clashofheroes-a5347",
+    "storage_bucket": "clashofheroes-a5347.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766485453603:android:eeaa28c7f078eb0faf4a96",
+        "android_client_info": {
+          "package_name": "com.DefaultCompany.KillEmAll"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZYxTxxLhGr6-UFIL5XFHTrU3WY4heQBc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
