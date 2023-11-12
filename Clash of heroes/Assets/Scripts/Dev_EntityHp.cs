@@ -6,16 +6,16 @@ public class Dev_EntityHp : MonoBehaviour
     public Entity hpscript;
     public TextMeshProUGUI text;
 
-    void Start()
-    {
-    }
-
     void Update()
     {
-        if (hpscript != null)
+        if (hpscript != null & hpscript.hp > 0)
         {
             int hpValue = hpscript.hp;
             text.text = hpValue.ToString();
+        }
+        else
+        {
+            text.text = "";
         }
     }
 }
