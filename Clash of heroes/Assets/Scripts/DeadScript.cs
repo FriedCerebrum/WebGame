@@ -5,34 +5,26 @@ using UnityEngine.UIElements;
 
 public class DeadScript : MonoBehaviour
 {
-    public HealthTest healthTest;
+    public Animator animator;
+    public PlayerMovement pm;
+    public PlayerCombat pc;
+    public Entity entity;
     public GameObject targetObject;
-    public float forceAmount = 1500f;
     public Rigidbody2D rb;
-    bool forced = false;
     public void Update()
     {
-        if (healthTest != null)
+        if (entity.hp <= 0 && gameObject.layer == LayerMask.NameToLayer("Player"))
         {
-            if (healthTest.healthSlider.value <= 0.1f && !forced)
+            if (pm != null)
             {
-                Debug.Log("Умерли от причины 1");
-                ApplyForceToTarget();
-                forced = true;
+                pm.enabled = false;
+                animator.speed = 0;
             }
-        }
-        if (healthTest == null && !forced)
-        {
-            Debug.Log("Умерли от причины 2");
-            ApplyForceToTarget();
-            forced = true;
-        }
-    }
-    public void ApplyForceToTarget()
-    {
-        if (rb != null)
-        {
-            rb.AddForce(new Vector2(0f, forceAmount));
+            if (pc != null)
+            {
+                pc.enabled = false;
+                animator.speed = 0;
+            }
         }
     }
 }
