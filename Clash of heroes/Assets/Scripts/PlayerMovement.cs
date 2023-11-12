@@ -9,7 +9,6 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private float startCrouchSpeed;
 
-    private bool pressed = false;
 
     public float horizontalMove = 0f;
 
@@ -23,16 +22,6 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        
-        if (Input.GetKeyDown(KeyCode.R) && !pressed)
-        {
-            pressed = true;
-            animator.SetTrigger("hurt");
-        }
-        if (Input.GetKeyUp(KeyCode.R))
-        {
-            pressed = false;
-        }
 
         if (!controller.IsGrounded())
         {
