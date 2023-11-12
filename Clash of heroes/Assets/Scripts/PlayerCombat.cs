@@ -6,7 +6,7 @@ public class PlayerCombat : MonoBehaviour
     public Transform attackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
-    public float attackSpeed = 0.1f;
+    public float attackSpeed = 0.07f;
     private bool ableToAttack = true;
 
     void Update()
@@ -31,7 +31,17 @@ public class PlayerCombat : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
 
         foreach (Collider2D enemy in hitEnemies)
-        {
+        {   
+            if (enemy.GetComponent<Entity>().hp > 0)
+            {
+                Debug.Log("Entity найдён");
+                if (enemy.GetComponent<ColoredFlash>() != null)
+                {
+                    Debug.Log("ColoredFlash найдён");
+                    Color flashColor = new Color(0.7f, 0f, 0f);
+                    enemy.GetComponent<ColoredFlash>().Flash(flashColor);
+                }
+            }
             Debug.Log("We hit " + enemy.name);
             enemy.GetComponent<Entity>().TakeDamage(Random.Range(25, 35));
         }
