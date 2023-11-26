@@ -1,7 +1,7 @@
 using UnityEngine;
 using TMPro;
 
-public class Dev_EntityHp : MonoBehaviour
+public class Dev_EntityHp : MonoBehaviour // dev
 {
     public Entity hpscript;
     public TextMeshProUGUI text;
