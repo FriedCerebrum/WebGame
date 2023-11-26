@@ -5,7 +5,6 @@ using UnityEngine.UIElements;
 
 public class DeadScript : MonoBehaviour
 {
-    public Animator animator;
     public PlayerMovement pm;
     public PlayerCombat pc;
     public Entity entity;
@@ -18,12 +17,10 @@ public class DeadScript : MonoBehaviour
             if (pm != null)
             {
                 pm.enabled = false;
-                animator.speed = 0;
             }
             if (pc != null)
             {
                 pc.enabled = false;
-                animator.speed = 0;
             }
         }
     }
