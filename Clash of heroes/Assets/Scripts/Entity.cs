@@ -25,7 +25,7 @@ public class Entity : MonoBehaviour
             HurtMe(25);
             HasFPressed = true;
         }
-        if (!Input.GetKeyDown(KeyCode.F))
+        if (!Input.GetKeyDown(KeyCode.F)) // dev
         {
             HasFPressed = false;
         }
@@ -48,7 +48,7 @@ public class Entity : MonoBehaviour
     {
         hp -= damage;
     }
-    public void HurtMe(int damage)
+    public void HurtMe(int damage) // dev
     {
         hp -= damage;
         Color flashColor = new Color(0.7f, 0f, 0f);
