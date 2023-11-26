@@ -123,673 +123,673 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gg1_0
+      name: Kick_from_above_0
       rect:
         serializedVersion: 2
-        x: 97
-        y: 1922
-        width: 61
-        height: 68
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 52b674bf14895604aa357555ccd592ec
-      internalID: -921467826
+      spriteID: a1258f8c38ede8d448069712961531e8
+      internalID: -348275668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_1
+      name: Kick_from_above_1
       rect:
         serializedVersion: 2
-        x: 355
-        y: 1922
-        width: 60
-        height: 68
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d19936a1110657c408eda81b50129d2d
-      internalID: 1446764717
+      spriteID: 873fcba32840a8746b8fd9d76b22c52d
+      internalID: -1643490142
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_2
+      name: Kick_from_above_2
       rect:
         serializedVersion: 2
-        x: 615
-        y: 1921
-        width: 63
-        height: 67
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 266f00957554c2540b159a4ee5434061
-      internalID: -1507139717
+      spriteID: 13e0d9a00044bad4ea3658ef46b8cc44
+      internalID: 203549295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_3
+      name: Kick_from_above_3
       rect:
         serializedVersion: 2
-        x: 874
-        y: 1920
-        width: 57
-        height: 63
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 768
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ac947779db587b4b8189056c20c829e
-      internalID: 2029952977
+      spriteID: 47d34d0f466db7e448a4f2fbb8eb6794
+      internalID: 379260607
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_4
+      name: Kick_from_above_4
       rect:
         serializedVersion: 2
-        x: 1139
-        y: 1920
-        width: 52
-        height: 63
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1024
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9fa743109d283ef49bf27b0cb824733d
-      internalID: 952166138
+      spriteID: 7e64f13b8c2f18047851b5bbaf259dfe
+      internalID: -1753554454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_5
+      name: Kick_from_above_5
       rect:
         serializedVersion: 2
-        x: 1404
-        y: 1920
-        width: 41
-        height: 63
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1280
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d75f43b9e7e932742afb091b578b9d37
-      internalID: -1412616336
+      spriteID: e2a81a2bb7700c941b8fe242082b536d
+      internalID: -1122987112
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_6
+      name: Kick_from_above_6
       rect:
         serializedVersion: 2
-        x: 1649
-        y: 1920
-        width: 49
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1536
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d382ec3c0a3c4c489fd1333693fafd4
-      internalID: -53080344
+      spriteID: 7b11d298a7c97f745bc85b87d682450d
+      internalID: 988442693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_7
+      name: Kick_from_above_7
       rect:
         serializedVersion: 2
-        x: 1904
-        y: 1919
-        width: 51
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1792
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9afb7e1dce0e027429e41e13a86b5115
-      internalID: -839326143
+      spriteID: eb14479e931c50e42854c59d5d517935
+      internalID: 867733128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_8
+      name: Kick_from_above_8
       rect:
         serializedVersion: 2
         x: 0
         y: 1536
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ef20e0a0680ed845a0b818e63d4d3f8
-      internalID: 1152757426
+      spriteID: c5ff4673d75116c49a72da7f8219873c
+      internalID: -1340757236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_9
+      name: Kick_from_above_9
       rect:
         serializedVersion: 2
         x: 256
         y: 1536
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 332c3c9679c6ab9489f4ca94ac656ccf
-      internalID: 840588274
+      spriteID: 14be26a5e85fea245ab59645498acb33
+      internalID: 1361360078
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_10
+      name: Kick_from_above_10
       rect:
         serializedVersion: 2
         x: 512
         y: 1536
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 412119788f45fdb47b389fb86024adee
-      internalID: 1592887481
+      spriteID: 517c771490543c446af84458be516aec
+      internalID: -1503796883
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_11
+      name: Kick_from_above_11
       rect:
         serializedVersion: 2
         x: 768
         y: 1536
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57b878e3f554d3a498ab52f851d0131e
-      internalID: -769334586
+      spriteID: aa173b4a8ca65c240b25ecec592d5514
+      internalID: 498933567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_12
+      name: Kick_from_above_12
       rect:
         serializedVersion: 2
         x: 1024
         y: 1536
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 874beccb64bd0af40a7d4e79e0fec76a
-      internalID: 931344416
+      spriteID: a5bf6db70b38f83458917117e55e2f57
+      internalID: 1209201901
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_13
+      name: Kick_from_above_13
       rect:
         serializedVersion: 2
         x: 1280
         y: 1536
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 221fb46fa2a3b6940b5582f34294a419
-      internalID: -1517366460
+      spriteID: 201c75a504eafa4409b992e6f062bf74
+      internalID: 302236437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_14
+      name: Kick_from_above_14
       rect:
         serializedVersion: 2
         x: 1536
         y: 1536
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e59e483c1438f364982a408aa0ba5d77
-      internalID: 573537952
+      spriteID: 6b06371795ad52f469d9c197a49e4ff8
+      internalID: 1406047875
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_15
+      name: Kick_from_above_15
       rect:
         serializedVersion: 2
         x: 1792
         y: 1536
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a850fbcf59c7e0439ce8c47dc6ea6ce
-      internalID: 1324881148
+      spriteID: 09a5d0e657eb6fd4e846dd54fda77ba3
+      internalID: 1405980796
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_16
+      name: Kick_from_above_16
       rect:
         serializedVersion: 2
         x: 0
         y: 1280
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20671f9a4b2b1474e97b2ac439d61ba1
-      internalID: 1888455483
+      spriteID: 4502a5471dcc8444f96968c0dc444fd7
+      internalID: 792825851
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_17
+      name: Kick_from_above_25
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2afe7b5cc5f744049b78eab0dd9227c3
+      internalID: 1244835830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kick_from_above_26
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6cec686fb386b54fb5f8b9c5e91e4ac
+      internalID: -1047639893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kick_from_above_27
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3a58a1ad12dc864697ee48effa2a953
+      internalID: 120345648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kick_from_above_28
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88ad1717537aa2043acabf28eb6f2b9a
+      internalID: 1273820140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kick_from_above_29
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a14cb40e3442824fb359e749805348d
+      internalID: 45156271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kick_from_above_30
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba9ae86eaf92e5549834aac3f4599e86
+      internalID: -1204700745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kick_from_above_31
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe3e48ab6bd8d34ab8c5f6bf1693b0e
+      internalID: 473482947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kick_from_above_17
       rect:
         serializedVersion: 2
         x: 256
         y: 1280
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d374ea8e283fad48931deed1fb2117b
-      internalID: -927678264
+      spriteID: 3537cff288a54d84782019620cf759b8
+      internalID: -265270265
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_18
+      name: Kick_from_above_18
       rect:
         serializedVersion: 2
         x: 512
         y: 1280
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87aa46878c9c22c4783629716224830b
-      internalID: -1206988403
+      spriteID: 7f9b452346d69344fbb4a3473773894b
+      internalID: 1682742693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_19
+      name: Kick_from_above_19
       rect:
         serializedVersion: 2
         x: 768
         y: 1280
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 32f01a6bc26b53d458167e0808db0b8d
-      internalID: -145890078
+      spriteID: cd8d6d76691fe704f8a87eec4cb25142
+      internalID: -1137453038
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_20
+      name: Kick_from_above_20
       rect:
         serializedVersion: 2
         x: 1024
         y: 1280
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 82977cdb21c5fe349b6202f3b6f60555
-      internalID: 299641348
+      spriteID: af7d26ae11af90b468638047ebff987a
+      internalID: -1868452933
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_21
+      name: Kick_from_above_21
       rect:
         serializedVersion: 2
         x: 1280
         y: 1280
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f548906c4494015478e20a8bd7edcbd0
-      internalID: 1982763329
+      spriteID: 2149156234b091d489b9f73ce3a22634
+      internalID: -712065666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_22
+      name: Kick_from_above_22
       rect:
         serializedVersion: 2
         x: 1536
         y: 1280
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ae13afe7cfd84084192dffabe766b01a
-      internalID: 1492556757
+      spriteID: eca131db097fc1a4384b1715f89a1a12
+      internalID: 543167239
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_23
+      name: Kick_from_above_23
       rect:
         serializedVersion: 2
         x: 1792
         y: 1280
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74eb05d5352f6eb4d8d07fe601c1f873
-      internalID: -771418767
+      spriteID: a5b21d0224f908942a34f11370bbcdf1
+      internalID: -4667191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg1_24
+      name: Kick_from_above_24
       rect:
         serializedVersion: 2
         x: 0
         y: 1024
         width: 256
         height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 020eac788a789ba4eb8de9f8091e47df
-      internalID: 515142734
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gg1_25
-      rect:
-        serializedVersion: 2
-        x: 256
-        y: 1024
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 38b830f3b71730540b33301b54938c22
-      internalID: 1140447273
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gg1_26
-      rect:
-        serializedVersion: 2
-        x: 512
-        y: 1024
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3c2c831698928564e8f7ffb66972422b
-      internalID: -231014610
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gg1_27
-      rect:
-        serializedVersion: 2
-        x: 768
-        y: 1024
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8fa8b93cfa7ace8499162d8612e569c6
-      internalID: -603591029
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gg1_28
-      rect:
-        serializedVersion: 2
-        x: 1024
-        y: 1024
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 54fea027e2151804b9386be09d876f86
-      internalID: 2072283841
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gg1_29
-      rect:
-        serializedVersion: 2
-        x: 1280
-        y: 1024
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fccc4ec93adebe340854e96ff1e16891
-      internalID: -888103105
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gg1_30
-      rect:
-        serializedVersion: 2
-        x: 1536
-        y: 1024
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 48dc7cf6506436740a43c34b6399a333
-      internalID: -33974641
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gg1_31
-      rect:
-        serializedVersion: 2
-        x: 1792
-        y: 1024
-        width: 256
-        height: 256
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: accf018f3638c664a820004ba5ddec97
-      internalID: 958887073
+      spriteID: d2c43be1b39b53c439a10a316f134430
+      internalID: 2086121980
       vertices: []
       indices: 
       edges: []
@@ -805,40 +805,38 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gg1_0: -921467826
-      gg1_1: 1446764717
-      gg1_10: 1592887481
-      gg1_11: -769334586
-      gg1_12: 931344416
-      gg1_13: -1517366460
-      gg1_14: 573537952
-      gg1_15: 1324881148
-      gg1_16: 1888455483
-      gg1_17: -927678264
-      gg1_18: -1206988403
-      gg1_19: -145890078
-      gg1_2: -1507139717
-      gg1_20: 299641348
-      gg1_21: 1982763329
-      gg1_22: 1492556757
-      gg1_23: -771418767
-      gg1_24: 515142734
-      gg1_25: 1140447273
-      gg1_26: -231014610
-      gg1_27: -603591029
-      gg1_28: 2072283841
-      gg1_29: -888103105
-      gg1_3: 2029952977
-      gg1_30: -33974641
-      gg1_31: 958887073
-      gg1_32: 607037707
-      gg1_33: -813986095
-      gg1_4: 952166138
-      gg1_5: -1412616336
-      gg1_6: -53080344
-      gg1_7: -839326143
-      gg1_8: 1152757426
-      gg1_9: 840588274
+      Kick_from_above_0: -348275668
+      Kick_from_above_1: -1643490142
+      Kick_from_above_10: -1503796883
+      Kick_from_above_11: 498933567
+      Kick_from_above_12: 1209201901
+      Kick_from_above_13: 302236437
+      Kick_from_above_14: 1406047875
+      Kick_from_above_15: 1405980796
+      Kick_from_above_16: 792825851
+      Kick_from_above_17: -265270265
+      Kick_from_above_18: 1682742693
+      Kick_from_above_19: -1137453038
+      Kick_from_above_2: 203549295
+      Kick_from_above_20: -1868452933
+      Kick_from_above_21: -712065666
+      Kick_from_above_22: 543167239
+      Kick_from_above_23: -4667191
+      Kick_from_above_24: 2086121980
+      Kick_from_above_25: 1244835830
+      Kick_from_above_26: -1047639893
+      Kick_from_above_27: 120345648
+      Kick_from_above_28: 1273820140
+      Kick_from_above_29: 45156271
+      Kick_from_above_3: 379260607
+      Kick_from_above_30: -1204700745
+      Kick_from_above_31: 473482947
+      Kick_from_above_4: -1753554454
+      Kick_from_above_5: -1122987112
+      Kick_from_above_6: 988442693
+      Kick_from_above_7: 867733128
+      Kick_from_above_8: -1340757236
+      Kick_from_above_9: 1361360078
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

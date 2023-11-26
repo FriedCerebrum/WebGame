@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9e5fa59b9b7d8b44c82903eddd00011f
+guid: 32df4c03295256843aa2d126a3589e83
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,925 +123,967 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gg5_0
+      name: Kick_0
       rect:
         serializedVersion: 2
-        x: 103
-        y: 1921
-        width: 49
-        height: 59
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff9bef715cf58804aace42891fc5dffb
-      internalID: 1489444469
+      spriteID: c972a72dc184aac4cba7b178cf958ab3
+      internalID: -1890370848
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_1
+      name: Kick_1
       rect:
         serializedVersion: 2
-        x: 361
-        y: 1920
-        width: 47
-        height: 58
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 256
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 572b94dc98fc0a84eb6811d887d696b6
-      internalID: -155052650
+      spriteID: 334fb61d84246124794012befb358797
+      internalID: 441655371
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_2
+      name: Kick_2
       rect:
         serializedVersion: 2
-        x: 619
-        y: 1920
-        width: 45
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 512
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91498335e1a0e5244ba0213349baff6b
-      internalID: 1683639355
+      spriteID: 3256eab377bce4b4ca41ea0d3ee9d5c3
+      internalID: -786689585
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_3
+      name: Kick_3
       rect:
         serializedVersion: 2
-        x: 877
-        y: 1919
-        width: 44
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 768
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3aeafb3d53f2184793a626a4bac1f65
-      internalID: -499938506
+      spriteID: e0c1da4594634904bba2fbf343afac5e
+      internalID: 1095858204
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_4
+      name: Kick_4
       rect:
         serializedVersion: 2
-        x: 1133
-        y: 1918
-        width: 44
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1024
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9517dc4bfcfa035499da9d63a3e640f0
-      internalID: -1206328923
+      spriteID: 3268c7bc48d68a54ea1a55d0d197c24c
+      internalID: 1364789416
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_5
+      name: Kick_5
       rect:
         serializedVersion: 2
-        x: 1390
-        y: 1918
-        width: 43
-        height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1280
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95f92169b44c4e1488ba3fd35516bb63
-      internalID: -423935949
+      spriteID: bf85e4bb7b48cfc40b0c834cbe629ea3
+      internalID: -1185778285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_6
+      name: Kick_6
       rect:
         serializedVersion: 2
-        x: 1646
-        y: 1919
-        width: 43
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1536
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5be1a14ed98c3c24a97a30c1223453d2
-      internalID: 1208058188
+      spriteID: 5b3f6758eb04bc64893d52a6d79ee5c9
+      internalID: 1559462370
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_7
+      name: Kick_7
       rect:
         serializedVersion: 2
-        x: 1903
-        y: 1920
-        width: 43
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1792
+        y: 1792
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a0e838f9e8c518e4bb230ba1e0f890a6
-      internalID: -786771339
+      spriteID: 6bd21c33df572014990c6f1159e5fdee
+      internalID: 1633385331
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_8
+      name: Kick_8
       rect:
         serializedVersion: 2
-        x: 111
-        y: 1664
-        width: 43
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec7c24a0d63b5ba40bdf509ff2764c3a
-      internalID: 2066101260
+      spriteID: e55a85dd9826f134b90c104d3c8166c8
+      internalID: 1866547195
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_9
+      name: Kick_9
       rect:
         serializedVersion: 2
-        x: 367
-        y: 1664
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e309432ef5312441a483b88cc4f75db
-      internalID: -967017761
+      spriteID: ed37c3a33e36d1044b4af72ce1b45397
+      internalID: 533118415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_10
+      name: Kick_10
       rect:
         serializedVersion: 2
-        x: 623
-        y: 1664
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 512
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfa81075ab3134a4c818c0f96bcfcc70
-      internalID: -1877649607
+      spriteID: 5f7e75d37efc9ef499ae3a075026a0ed
+      internalID: -1862141858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_11
+      name: Kick_11
       rect:
         serializedVersion: 2
-        x: 879
-        y: 1664
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1024
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17f1355e88f083f4a8932751e87d88de
-      internalID: 1153426673
+      spriteID: 8cbad4ca24ef3be44be483604a66562a
+      internalID: -997666182
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_12
+      name: Kick_12
       rect:
         serializedVersion: 2
-        x: 1135
-        y: 1664
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1280
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8be96b78846c3b845a018a4c55844eb8
-      internalID: -1514536412
+      spriteID: c2d452c677beb6d4bb6111ce2af60332
+      internalID: 1501630918
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_13
+      name: Kick_13
       rect:
         serializedVersion: 2
-        x: 1391
-        y: 1664
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1536
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd691a013e1ecde4786d0f93ed18be2e
-      internalID: -1258862319
+      spriteID: d45f6fac979cb504d990d79441e1d824
+      internalID: 693554557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_14
+      name: Kick_14
       rect:
         serializedVersion: 2
-        x: 1647
-        y: 1664
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1792
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f860951a25a8d64596955263f6ddbc2
-      internalID: -1951622059
+      spriteID: f9f1fe8d8599fc94cb66721c6d53773e
+      internalID: 1045535617
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_15
+      name: Kick_15
       rect:
         serializedVersion: 2
-        x: 1903
-        y: 1664
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 1279
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.566, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 459b096e3e1fc104697dbe3c49dc1d61
-      internalID: -46532195
+      spriteID: 5300bc9680acc2f4cbbdb06b0e91f4e7
+      internalID: -509933979
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_16
+      name: Kick_16
       rect:
         serializedVersion: 2
-        x: 111
-        y: 1408
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 256
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.565, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b81233353fb20643bf34a2dcbc74000
-      internalID: 1241867879
+      spriteID: 9ef3e8f53f7961649932002675ac36f0
+      internalID: 18209884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_17
+      name: Kick_17
       rect:
         serializedVersion: 2
-        x: 367
-        y: 1408
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 512
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.565, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c55dd4b68577fbf4ca06cc5de9acd899
-      internalID: -1197278538
+      spriteID: 24907331e1a356d45847d523d78411a9
+      internalID: -1635850304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_18
+      name: Kick_18
       rect:
         serializedVersion: 2
-        x: 623
-        y: 1408
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 768
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.548, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86a9279ef258cd044948da2366b16352
-      internalID: -1077832059
+      spriteID: 764ccb803958f6e46845e26708b19a15
+      internalID: -231645258
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_19
+      name: Kick_19
       rect:
         serializedVersion: 2
-        x: 879
-        y: 1408
-        width: 43
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1024
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.536, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d20e5b606a6eba84c92e7f616aa1ddd7
-      internalID: -353796203
+      spriteID: bc5b2d9e91617d7489ca3ce1655e75d7
+      internalID: -564842024
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_20
+      name: Kick_20
       rect:
         serializedVersion: 2
-        x: 1135
-        y: 1408
-        width: 43
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1280
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.52, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b161d44e21e7f5f499b4fa641035ee13
-      internalID: 1704612273
+      spriteID: 084ca808d2cf29145975b8db08df6444
+      internalID: 2110505900
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_21
+      name: Kick_21
       rect:
         serializedVersion: 2
-        x: 1391
-        y: 1408
-        width: 43
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1536
+        y: 1280
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.489, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e4cf3733a014f04ea348d38171e7e32
-      internalID: 66047676
+      spriteID: a3cc509ddfc6d9c48a5247bf7d0c7ea0
+      internalID: -1468821064
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_22
+      name: Kick_22
       rect:
         serializedVersion: 2
-        x: 1647
-        y: 1408
-        width: 43
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.53, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f0d5aacd201f5e14b9f813b3493de5ff
-      internalID: -932751158
+      spriteID: efc521c1982229444986a8a3356b6249
+      internalID: 1471576216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_23
+      name: Kick_23
       rect:
         serializedVersion: 2
-        x: 1903
-        y: 1408
-        width: 43
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 256
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.567, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0b69ab9033957264daa78e0e1ab074e1
-      internalID: 729426915
+      spriteID: fd23218c87e48924484d38798d7bd6db
+      internalID: 600531191
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_24
+      name: Kick_24
       rect:
         serializedVersion: 2
-        x: 111
-        y: 1152
-        width: 43
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 512
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.58, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b3bb68b8b0fc82a4ea3a00fc2af194b9
-      internalID: -1506135456
+      spriteID: 8a5d219b4371aea4e83287aa5aef7708
+      internalID: 1855731647
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_25
+      name: Kick_25
       rect:
         serializedVersion: 2
-        x: 367
-        y: 1152
-        width: 43
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 768
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.598, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c9de388e21311474586c4b02cbafb87c
-      internalID: -601773253
+      spriteID: 8171db5bf4ede934baa0ffe94778b882
+      internalID: 1366672084
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_26
+      name: Kick_26
       rect:
         serializedVersion: 2
-        x: 623
-        y: 1152
-        width: 43
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1024
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.61, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af2dfc1819985be40ab7b55b5436efca
-      internalID: 1382498430
+      spriteID: c2ad772e08cda0842bd8bde2ba1412ec
+      internalID: -77026931
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_27
+      name: Kick_27
       rect:
         serializedVersion: 2
-        x: 879
-        y: 1152
-        width: 43
-        height: 57
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1280
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.62, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73a8997254fbd7f419c2d0f50b0e63f8
-      internalID: 404429259
+      spriteID: 73f6b083d3380ff41b868306c8c5b9fd
+      internalID: 1249160975
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_28
+      name: Kick_28
       rect:
         serializedVersion: 2
-        x: 1135
-        y: 1152
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1536
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.62, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b880f3dbe61dbee44b81d834d0a2b960
-      internalID: 1023133192
+      spriteID: d2369f04b93c46d46be23e4cc9558322
+      internalID: 1971894384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_29
+      name: Kick_29
       rect:
         serializedVersion: 2
-        x: 1391
-        y: 1152
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1792
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.624, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c410a15a792c8f4d9c3a5c7da37b5f2
-      internalID: -287691162
+      spriteID: 953d03bd35ee877488e723c4d3c82494
+      internalID: -1731467805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_30
+      name: Kick_30
       rect:
         serializedVersion: 2
-        x: 1647
-        y: 1152
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.629, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4bfcaaa48a0dd3b44ac0dde35805004d
-      internalID: -1407280931
+      spriteID: aabfa08d3a458aa4c94d9fee16bf16ea
+      internalID: -2074462660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_31
+      name: Kick_31
       rect:
         serializedVersion: 2
-        x: 1903
-        y: 1152
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.63, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 09e647ca26f333d44ac443e8253e73e4
-      internalID: -1962881788
+      spriteID: 100d4e7d952c45a4ab0c2a50bdb839c7
+      internalID: -1009451587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_32
+      name: Kick_32
       rect:
         serializedVersion: 2
-        x: 111
-        y: 896
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.62, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 97addef243f197342b1265542b521358
-      internalID: 1154940561
+      spriteID: ef409f86b0ad9dc4486b48b1f4fadbd9
+      internalID: 1571663718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_33
+      name: Kick_33
       rect:
         serializedVersion: 2
-        x: 367
-        y: 896
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.62, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 922056d737baf0f4e8692ee3dc0073db
-      internalID: -126940819
+      spriteID: 0ea628c2b08c0fe46b46cf5b6df1d190
+      internalID: 514804691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_34
+      name: Kick_34
       rect:
         serializedVersion: 2
-        x: 623
-        y: 896
-        width: 43
-        height: 56
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1024
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.62, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0283e9143b2fd747bf34b08b0d60e9f
-      internalID: 1771808547
+      spriteID: d894f0e8704aeca48bcfc99a1ce5235e
+      internalID: 2127115351
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_35
+      name: Kick_35
       rect:
         serializedVersion: 2
-        x: 879
-        y: 896
-        width: 43
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1280
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.61, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 72b86c8766ff092458f9cd5607af82b2
-      internalID: 459061564
+      spriteID: c45a3a6f7cbf0184a83a42025cbc4d4a
+      internalID: 640641812
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_36
+      name: Kick_36
       rect:
         serializedVersion: 2
-        x: 1135
-        y: 896
-        width: 43
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1536
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.6, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d070e261b793684395ad4308321b58b
-      internalID: 611923765
+      spriteID: 3bcf75a70d4ce8a4f9701f0cf714b4e0
+      internalID: 147961291
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_37
+      name: Kick_37
       rect:
         serializedVersion: 2
-        x: 1391
-        y: 896
-        width: 43
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1792
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.59, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f9ca2f6696a7f6b4781429f03e5392df
-      internalID: 1866662354
+      spriteID: a8fe19addb8f94747b5051689a4dcdac
+      internalID: 41347101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_38
+      name: Kick_38
       rect:
         serializedVersion: 2
-        x: 1647
-        y: 896
-        width: 43
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.575, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bedded11188b60f49b63f0389b92b198
-      internalID: -519695654
+      spriteID: 8dc8b64ba659bf44d91bd7d6b95298a4
+      internalID: 635123344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_39
+      name: Kick_39
       rect:
         serializedVersion: 2
-        x: 1903
-        y: 896
-        width: 43
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.565, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5310a78f3fb67ae4baf4cf9abae0a148
-      internalID: -1794454378
+      spriteID: 4139c361543adf741829f7a75d3c1506
+      internalID: 507187977
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_40
+      name: Kick_40
       rect:
         serializedVersion: 2
-        x: 111
-        y: 640
-        width: 43
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.551, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ebbe3df8cecefa2468ca07bd9f6fe7fc
-      internalID: 1398775437
+      spriteID: 3d2936991339fe1469afaa90424e941a
+      internalID: -1301981220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_41
+      name: Kick_41
       rect:
         serializedVersion: 2
-        x: 367
-        y: 640
-        width: 43
-        height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.539, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 771d1882f8a8686438b8165db0a85b11
-      internalID: 1366052800
+      spriteID: 5dc4d81093542b94f9857ee4d739fbf9
+      internalID: -1190498794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_42
+      name: Kick_42
       rect:
         serializedVersion: 2
-        x: 623
-        y: 640
-        width: 43
-        height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.526, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 657faf07033fe8449b6daf3a3990cd84
-      internalID: 745376368
+      spriteID: 258d594e310504747bf432a40ebacac0
+      internalID: 852138570
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gg5_43
+      name: Kick_43
       rect:
         serializedVersion: 2
-        x: 879
-        y: 640
-        width: 43
-        height: 54
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1280
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.515, y: 0.66}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 78a7718abfd44d74f9b1be1511ab25e8
-      internalID: -1334795486
+      spriteID: 3e0f1b91ff7d41b4081abf18fc230d4c
+      internalID: -623368713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kick_44
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ca10fe8a1def9f40b8009a76c6cc029
+      internalID: 6218920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Kick_45
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.499, y: 0.66}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d778e12ba7198644ca7175c731ba1220
+      internalID: -1499396868
       vertices: []
       indices: 
       edges: []
@@ -1057,50 +1099,52 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gg5_0: 1489444469
-      gg5_1: -155052650
-      gg5_10: -1877649607
-      gg5_11: 1153426673
-      gg5_12: -1514536412
-      gg5_13: -1258862319
-      gg5_14: -1951622059
-      gg5_15: -46532195
-      gg5_16: 1241867879
-      gg5_17: -1197278538
-      gg5_18: -1077832059
-      gg5_19: -353796203
-      gg5_2: 1683639355
-      gg5_20: 1704612273
-      gg5_21: 66047676
-      gg5_22: -932751158
-      gg5_23: 729426915
-      gg5_24: -1506135456
-      gg5_25: -601773253
-      gg5_26: 1382498430
-      gg5_27: 404429259
-      gg5_28: 1023133192
-      gg5_29: -287691162
-      gg5_3: -499938506
-      gg5_30: -1407280931
-      gg5_31: -1962881788
-      gg5_32: 1154940561
-      gg5_33: -126940819
-      gg5_34: 1771808547
-      gg5_35: 459061564
-      gg5_36: 611923765
-      gg5_37: 1866662354
-      gg5_38: -519695654
-      gg5_39: -1794454378
-      gg5_4: -1206328923
-      gg5_40: 1398775437
-      gg5_41: 1366052800
-      gg5_42: 745376368
-      gg5_43: -1334795486
-      gg5_5: -423935949
-      gg5_6: 1208058188
-      gg5_7: -786771339
-      gg5_8: 2066101260
-      gg5_9: -967017761
+      Kick_0: -1890370848
+      Kick_1: 441655371
+      Kick_10: -1862141858
+      Kick_11: -997666182
+      Kick_12: 1501630918
+      Kick_13: 693554557
+      Kick_14: 1045535617
+      Kick_15: -509933979
+      Kick_16: 18209884
+      Kick_17: -1635850304
+      Kick_18: -231645258
+      Kick_19: -564842024
+      Kick_2: -786689585
+      Kick_20: 2110505900
+      Kick_21: -1468821064
+      Kick_22: 1471576216
+      Kick_23: 600531191
+      Kick_24: 1855731647
+      Kick_25: 1366672084
+      Kick_26: -77026931
+      Kick_27: 1249160975
+      Kick_28: 1971894384
+      Kick_29: -1731467805
+      Kick_3: 1095858204
+      Kick_30: -2074462660
+      Kick_31: -1009451587
+      Kick_32: 1571663718
+      Kick_33: 514804691
+      Kick_34: 2127115351
+      Kick_35: 640641812
+      Kick_36: 147961291
+      Kick_37: 41347101
+      Kick_38: 635123344
+      Kick_39: 507187977
+      Kick_4: 1364789416
+      Kick_40: -1301981220
+      Kick_41: -1190498794
+      Kick_42: 852138570
+      Kick_43: -623368713
+      Kick_44: 6218920
+      Kick_45: -1499396868
+      Kick_5: -1185778285
+      Kick_6: 1559462370
+      Kick_7: 1633385331
+      Kick_8: 1866547195
+      Kick_9: 533118415
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
