@@ -1,3 +1,4 @@
+using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -5,7 +6,8 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController2D controller;
     public Animator animator;
 
-    public float runSpeed = 40f;
+    public float runSpeed = 120f;
+    public float originalRunSpeed;
 
     [SerializeField] private float startCrouchSpeed;
 
@@ -14,12 +16,15 @@ public class PlayerMovement : MonoBehaviour
 
     bool jump = false;
     bool crouch = false;
+    public bool moving = false;
+    public bool in_air;
     private void Start()
     {
+        originalRunSpeed = runSpeed;
         startCrouchSpeed = controller.m_CrouchSpeed;
     }
 
-    private void Update()
+    public void Update()
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
@@ -62,10 +67,22 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(horizontalMove) != 0)
         {
             animator.SetBool("moving", true);
+            moving = true;
         }
         else
         {
             animator.SetBool("moving", false);
+            moving = false;
+        }
+        if (controller.IsGrounded())
+        {
+            animator.SetBool("in_air", false);
+            in_air = false;
+        }
+        else
+        {
+            animator.SetBool("in_air", true);
+            in_air = true;
         }
     }
     private void FixedUpdate()
