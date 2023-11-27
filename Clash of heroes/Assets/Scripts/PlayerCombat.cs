@@ -123,7 +123,6 @@ public class PlayerCombat : MonoBehaviour
 
                 Debug.Log("We hit " + enemy.name); // dev
             }
-            Debug.Log("We hit " + enemy.name); // dev
             enemy.GetComponent<Entity>().TakeDamage(Random.Range(15, 25));
         }
     }
