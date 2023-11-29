@@ -2,16 +2,24 @@
 using UnityEngine;
 using Firebase;
 using Firebase.Auth;
-using TMPro;
+using Firebase.Extensions; // Для FirebaseApp.CheckAndFixDependenciesAsync()
+using Firebase.Firestore; // Для работы с Firestore
+using System.Collections.Generic; // Для использования Dictionary
+using TMPro; // Для работы с текстовыми полями
 using System.Threading.Tasks;
+using UnityEngine.SceneManagement;
+
 
 public class AuthManager : MonoBehaviour
 {
     //Firebase переменные
     [Header("Firebase")]
     public DependencyStatus dependencyStatus;
-    public FirebaseAuth auth;    
+    public FirebaseAuth auth;
     public FirebaseUser User;
+    public static string PlayerId { get; private set; }
+    [Header("Scenes")]
+    public string menuSceneName = "LoadingBeforeLobby";
 
     //Переменные логина
     [Header("Login")]
@@ -27,6 +35,15 @@ public class AuthManager : MonoBehaviour
     public TMP_InputField passwordRegisterField;
     public TMP_InputField passwordRegisterVerifyField;
     public TMP_Text warningRegisterText;
+
+    [Header("Player Data")]
+    public string nickname;
+    public string items;
+    public int level;
+    public int losses;
+    public int money;
+    public int wins;
+
 
     void Awake()
     {
@@ -109,6 +126,11 @@ public class AuthManager : MonoBehaviour
             Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
             warningLoginText.text = "";
             confirmLoginText.text = "Logged In";
+            PlayerId = User.UserId;
+            PlayerPrefs.SetString("PlayerId", PlayerId);
+            PlayerPrefs.Save();
+
+            SceneManager.LoadScene(menuSceneName);
         }
     }
 
@@ -164,17 +186,17 @@ public class AuthManager : MonoBehaviour
 
                 if (User != null)
                 {
-                    //Создаём профиль пользователя и задаём имя пользователя
-                    UserProfile profile = new UserProfile{DisplayName = _username};
+                    // Создаём профиль пользователя и задаём имя пользователя
+                    UserProfile profile = new UserProfile { DisplayName = _username };
 
-                    //Вызовем функцию Firebase auth update user profile, передав ей профиль с именем пользователя
+                    // Вызовем функцию Firebase auth update user profile, передав ей профиль с именем пользователя
                     Task ProfileTask = User.UpdateUserProfileAsync(profile);
-                    //Ждём
+                    // Ждём
                     yield return new WaitUntil(predicate: () => ProfileTask.IsCompleted);
 
                     if (ProfileTask.Exception != null)
                     {
-                        //Обработка ошибок
+                        // Обработка ошибок
                         Debug.LogWarning(message: $"Failed to register task with {ProfileTask.Exception}");
                         FirebaseException firebaseEx = ProfileTask.Exception.GetBaseException() as FirebaseException;
                         AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
@@ -182,13 +204,46 @@ public class AuthManager : MonoBehaviour
                     }
                     else
                     {
-                        //Пользователь создан
-                        //Возврат на экран логина
+                        // Добавляем данные игрока в Firestore
+                        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(dependencyTask =>
+                        {
+                            if (dependencyTask.Result == DependencyStatus.Available)
+                            {
+                                FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
 
+                                Dictionary<string, object> playerData = new Dictionary<string, object>
+                    {
+                        { "Nickname", _username },
+                        { "Items", "" }, // Изначально пустой список предметов
+                        { "Level", 1 }, // Начальный уровень
+                        { "Losses", 0 }, // Начальное количество поражений
+                        { "Money", 0 }, // Начальное количество денег
+                        { "Wins", 0 } // Начальное количество побед
+                    };
 
-                        //Нет логики возврата. Пофиксить после пары часов сна
-                        
-                        warningRegisterText.text = "";
+                                // Создаем документ в коллекции "Players" с идентификатором, равным UID пользователя
+                                db.Collection("Players").Document(User.UserId).SetAsync(playerData).ContinueWith(task =>
+                                {
+                                    if (task.IsCompleted)
+                                    {
+                                        Debug.Log("Player data added to Firestore");
+                                        PlayerId = User.UserId;
+                                        warningRegisterText.text = "";
+                                        SceneManager.LoadScene(menuSceneName);
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning("Failed to add player data to Firestore");
+                                        warningRegisterText.text = "Failed to add player data to Firestore";
+                                    }
+                                });
+                            }
+                            else
+                            {
+                                Debug.LogError("Could not resolve all Firebase dependencies: " + dependencyTask.Result);
+                                warningRegisterText.text = "Failed to add player data to Firestore (Firebase dependencies)";
+                            }
+                        });
                     }
                 }
             }
