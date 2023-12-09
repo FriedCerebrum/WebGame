@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 517094653556074174}
   - component: {fileID: 7822135194856414526}
   - component: {fileID: 176232177629256569}
+  - component: {fileID: -5418145136280463675}
   - component: {fileID: 8278793690136368716}
   m_Layer: 0
   m_Name: PlayerMain
@@ -208,6 +209,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 517094653556074174}
   - {fileID: 8278793690136368716}
+  - {fileID: -5418145136280463675}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -238,6 +240,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &-5418145136280463675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 803537516611867511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SynchronizePosition: 1
+  m_SynchronizeRotation: 0
+  m_SynchronizeScale: 0
+  m_UseLocal: 0
 --- !u!114 &8278793690136368716
 MonoBehaviour:
   m_ObjectHideFlags: 0

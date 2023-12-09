@@ -22,17 +22,17 @@ public class DevRoomManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.CountOfRooms == 0)
         {
             PhotonNetwork.CreateRoom("MyRoom", roomOptions);
-            Debug.Log("Creating a new room...");
+            Debug.Log("Создаём комнату");
         }
         else
         {
             PhotonNetwork.JoinRandomRoom();
-            Debug.Log("Joining a random room...");
+            Debug.Log("Присоединяемся к рандомной комнате");
         }
     }
     public override void OnJoinRandomFailed(short returnCode, string message)
     {
-        Debug.Log("Failed to join a room, creating a new one.");
+        Debug.Log("Ошибка создания комнаты");
         CreateOrJoinRoom();
     }
     public override void OnCreatedRoom()
@@ -42,11 +42,12 @@ public class DevRoomManager : MonoBehaviourPunCallbacks
     }
     public override void OnConnected()
     {
-        Debug.Log("Присоединяемся");
+        Debug.Log("Присоединились");
     }
     public override void OnJoinedRoom()
     {
         Debug.Log("Создание персонажа");
+        devspawn.Spawn();
     }
 
 }
