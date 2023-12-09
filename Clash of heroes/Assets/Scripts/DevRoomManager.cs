@@ -11,7 +11,7 @@ public class DevRoomManager : MonoBehaviourPunCallbacks
     }
     public override void OnConnectedToMaster()
     {
-        Debug.Log("Connected to Photon Master Server");
+        Debug.Log("Подключились к серверу");
         CreateOrJoinRoom();
     }
     private void CreateOrJoinRoom()
@@ -35,35 +35,11 @@ public class DevRoomManager : MonoBehaviourPunCallbacks
         Debug.Log("Ошибка создания комнаты");
         CreateOrJoinRoom();
     }
-    public override void OnCreatedRoom()
-    {
-        Debug.Log("Комната создана");
-    }
-    public override void OnConnected()
-    {
-        Debug.Log("Присоединились");
-    }
+
     public override void OnJoinedRoom()
     {
-        Debug.Log("Создание персонажа");
-
-        if (PhotonNetwork.PlayerList.Length == 1)
-        {
-            devspawn.Spawn();
-        }
-        else
-        {
-            foreach (var player in PhotonNetwork.PlayerList)
-            {
-                if (!player.IsLocal)
-                {
-                    Debug.Log($"Спавн персонажа для игрока: {player.UserId}");
-                    devspawn.SpawnOtherPlayer(player);
-                }
-            }
-            devspawn.Spawn();
-        }
+        Debug.Log("Присоединились к комнате");
+        devspawn.Spawn();
     }
-
 }
 

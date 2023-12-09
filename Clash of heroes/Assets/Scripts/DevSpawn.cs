@@ -20,6 +20,6 @@ public class DevSpawn : MonoBehaviour
     {
         Vector2 randomPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
         PhotonNetwork.Instantiate("PlayerMain", randomPosition, Quaternion.identity);
-        Debug.Log("Заспавнен игрок");
+        Debug.Log("Заспавнен другой игрок");
     }
 }
