@@ -56,11 +56,19 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
     {
         isPlayerReady = !isPlayerReady;
         readyButton.GetComponentInChildren<Text>().text = isPlayerReady ? "Не готов" : "Готов";
+
+        // Обновление CustomProperties
+        ExitGames.Client.Photon.Hashtable properties = new ExitGames.Client.Photon.Hashtable
+    {
+        { "isReady", isPlayerReady }
+    };
+        PhotonNetwork.LocalPlayer.SetCustomProperties(properties);
+
         photonView.RPC("CheckPlayersReady", RpcTarget.AllBuffered);
 
-       
         Debug.Log("SetPlayerReady() - isPlayerReady: " + isPlayerReady);
     }
+
 
     [PunRPC]
     void CheckPlayersReady()
@@ -69,14 +77,19 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
         {
             foreach (var player in PhotonNetwork.CurrentRoom.Players.Values)
             {
-                // Добавляем проверку на null и наличие ключа "isReady" в CustomProperties
-                if (player.CustomProperties == null || !player.CustomProperties.ContainsKey("isReady") || !(bool)player.CustomProperties["isReady"])
+                if (!player.CustomProperties.TryGetValue("isReady", out object isReadyValue) || !(bool)isReadyValue)
                 {
+                    Debug.Log("Не все игроки готовы.");
                     return;
                 }
             }
 
+            Debug.Log("Все игроки готовы. Загружаем арену.");
             LoadArena();
+        }
+        else
+        {
+            Debug.Log("В комнате не достаточно игроков.");
         }
 
         Debug.Log("CheckPlayersReady() called");
@@ -85,11 +98,10 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
 
     void LoadArena()
     {
-        PhotonNetwork.LoadLevel("SampleScene"); // Загружаем сцену арены
-
-       
-        Debug.Log("LoadArena() called");
+        Debug.Log("Загрузка сцены: SampleScene");
+        PhotonNetwork.LoadLevel("SampleScene");
     }
+
 
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
     {
