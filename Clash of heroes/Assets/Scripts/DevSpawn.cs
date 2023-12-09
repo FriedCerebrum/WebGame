@@ -5,9 +5,13 @@ public class DevSpawn : MonoBehaviour
 {
     public GameObject player;
     public float minX, minY, maxX, maxY;
+    PhotonView view;
     public void Spawn()
     {
-        Vector2 randomPosition = new Vector2(Random.Range (minX, minY), Random.Range (maxX, maxY));
-        PhotonNetwork.Instantiate(player.name, randomPosition, Quaternion.identity);
+        if (view.IsMine)
+        {
+            Vector2 randomPosition = new Vector2(Random.Range(minX, minY), Random.Range(maxX, maxY));
+            PhotonNetwork.Instantiate(player.name, randomPosition, Quaternion.identity);
+        }
     }
 }
