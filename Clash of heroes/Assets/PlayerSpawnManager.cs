@@ -20,22 +20,37 @@ public class PlayerSpawnManager : MonoBehaviourPun
 
     void SpawnPlayer(int spawnIndex = -1)
     {
+        if (spawnPoints == null || spawnPoints.Length == 0)
+        {
+            Debug.LogError("Spawn points array is not initialized or empty!");
+            return;
+        }
+
         GameObject spawnPoint;
 
         if (spawnIndex == -1)
         {
             // Рандомный выбор точки спавна для мастер клиента
             spawnIndex = Random.Range(0, spawnPoints.Length);
-            spawnPoint = spawnPoints[spawnIndex];
-        }
-        else
-        {
-            // Используем назначенную точку спавна
-            spawnPoint = spawnPoints[spawnIndex];
         }
 
-        // Спавн игрока
-        // PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.transform.position, Quaternion.identity);
+        spawnPoint = spawnPoints[spawnIndex];
+
+        // Проверяем, не является ли spawnPoint null
+        if (spawnPoint == null)
+        {
+            Debug.LogError("Spawn point at index " + spawnIndex + " is null!");
+            return;
+        }
+
+        GameObject playerPrefab = Resources.Load<GameObject>("Player 1");
+        if (playerPrefab == null)
+        {
+            Debug.LogError("Player prefab not found in Resources!");
+            return;
+        }
+
+        PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.transform.position, Quaternion.identity);
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -43,6 +58,7 @@ public class PlayerSpawnManager : MonoBehaviourPun
             photonView.RPC("ReceiveSpawnPoint", RpcTarget.Others, spawnIndex);
         }
     }
+
 
     [PunRPC]
     void ReceiveSpawnPoint(int spawnIndex)
