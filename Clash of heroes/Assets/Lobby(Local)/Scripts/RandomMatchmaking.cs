@@ -99,7 +99,7 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
     void LoadArena()
     {
         Debug.Log("Загрузка сцены: SampleScene");
-        PhotonNetwork.LoadLevel("SampleScene");
+        PhotonNetwork.LoadLevel("Sandbox");
     }
 
 

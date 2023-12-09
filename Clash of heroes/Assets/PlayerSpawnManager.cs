@@ -43,7 +43,7 @@ public class PlayerSpawnManager : MonoBehaviourPun
             return;
         }
 
-        GameObject playerPrefab = Resources.Load<GameObject>("Player 1");
+        GameObject playerPrefab = Resources.Load<GameObject>("Player 2");
         if (playerPrefab == null)
         {
             Debug.LogError("Player prefab not found in Resources!");
