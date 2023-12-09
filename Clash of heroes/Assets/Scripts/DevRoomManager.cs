@@ -46,14 +46,22 @@ public class DevRoomManager : MonoBehaviourPunCallbacks
     public override void OnJoinedRoom()
     {
         Debug.Log("Создание персонажа");
-        devspawn.Spawn();
-        foreach (var player in PhotonNetwork.PlayerList)
+
+        if (PhotonNetwork.PlayerList.Length == 1)
         {
-            if (!player.IsLocal)
+            devspawn.Spawn();
+        }
+        else
+        {
+            foreach (var player in PhotonNetwork.PlayerList)
             {
-                Debug.Log($"Спавн персонажа для игрока: {player.UserId}");
-                devspawn.SpawnOtherPlayer(player);
+                if (!player.IsLocal)
+                {
+                    Debug.Log($"Спавн персонажа для игрока: {player.UserId}");
+                    devspawn.SpawnOtherPlayer(player);
+                }
             }
+            devspawn.Spawn();
         }
     }
 

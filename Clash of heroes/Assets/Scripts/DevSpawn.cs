@@ -18,6 +18,6 @@ public class DevSpawn : MonoBehaviour
     public void SpawnOtherPlayer(Photon.Realtime.Player player)
     {
         Vector2 randomPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
-        PhotonNetwork.Instantiate("player", randomPosition, Quaternion.identity);
+        PhotonNetwork.Instantiate("PlayerMain", randomPosition, Quaternion.identity);
     }
 }
