@@ -38,7 +38,6 @@ public class DevRoomManager : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Debug.Log("Комната создана");
-        devspawn.Spawn();
     }
     public override void OnConnected()
     {

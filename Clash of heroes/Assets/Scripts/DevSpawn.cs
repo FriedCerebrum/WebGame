@@ -6,6 +6,10 @@ public class DevSpawn : MonoBehaviour
     public GameObject player;
     public float minX, minY, maxX, maxY;
     PhotonView view;
+    private void Start()
+    {
+        view = GetComponent<PhotonView>();
+    }
     public void Spawn()
     {
         if (view.IsMine)
