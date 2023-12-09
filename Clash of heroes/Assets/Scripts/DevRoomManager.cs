@@ -43,7 +43,11 @@ public class DevRoomManager : MonoBehaviourPunCallbacks
     public override void OnConnected()
     {
         Debug.Log("Присоединяемся");
-        devspawn.Spawn();
     }
+    public override void OnJoinedRoom()
+    {
+        Debug.Log("Создание персонажа");
+    }
+
 }
 
