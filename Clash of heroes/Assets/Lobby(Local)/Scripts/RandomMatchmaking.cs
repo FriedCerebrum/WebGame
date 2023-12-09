@@ -84,7 +84,7 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
 
     void LoadArena()
     {
-        PhotonNetwork.LoadLevel("ArenaScene"); // Загружаем сцену арены
+        PhotonNetwork.LoadLevel("SampleScene"); // Загружаем сцену арены
 
        
         Debug.Log("LoadArena() called");
