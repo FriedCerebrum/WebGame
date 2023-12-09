@@ -47,6 +47,14 @@ public class DevRoomManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Создание персонажа");
         devspawn.Spawn();
+        foreach (var player in PhotonNetwork.PlayerList)
+        {
+            if (!player.IsLocal)
+            {
+                Debug.Log($"Спавн персонажа для игрока: {player.UserId}");
+                devspawn.SpawnOtherPlayer(player);
+            }
+        }
     }
 
 }

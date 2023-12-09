@@ -12,14 +12,12 @@ public class DevSpawn : MonoBehaviour
     }
     public void Spawn()
     {
-        if (PhotonNetwork.IsConnected)
-        {
-            // —оздаем куб только дл€ локального игрока (клиента)
-            if (view.IsMine)
-            {
-                Vector2 spawnPosition = new Vector2(Random.Range(minX, minY), Random.Range(maxX, maxY));
-                PhotonNetwork.Instantiate(player.name, spawnPosition, Quaternion.identity);
-            }
-        }
+        Vector2 randomPosition = new Vector2(Random.Range(minX, minY), Random.Range(maxX, maxY));
+        PhotonNetwork.Instantiate(player.name, randomPosition, Quaternion.identity);
+    }
+    public void SpawnOtherPlayer(Photon.Realtime.Player player)
+    {
+        Vector2 randomPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
+        PhotonNetwork.Instantiate("player", randomPosition, Quaternion.identity);
     }
 }
