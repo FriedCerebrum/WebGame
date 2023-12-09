@@ -69,7 +69,8 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
         {
             foreach (var player in PhotonNetwork.CurrentRoom.Players.Values)
             {
-                if (!(bool)player.CustomProperties["isReady"])
+                // Добавляем проверку на null и наличие ключа "isReady" в CustomProperties
+                if (player.CustomProperties == null || !player.CustomProperties.ContainsKey("isReady") || !(bool)player.CustomProperties["isReady"])
                 {
                     return;
                 }
@@ -78,9 +79,9 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
             LoadArena();
         }
 
-        
         Debug.Log("CheckPlayersReady() called");
     }
+
 
     void LoadArena()
     {
