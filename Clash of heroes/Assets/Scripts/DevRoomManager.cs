@@ -28,7 +28,6 @@ public class DevRoomManager : MonoBehaviourPunCallbacks
         {
             PhotonNetwork.JoinRandomRoom();
             Debug.Log("Joining a random room...");
-            devspawn.Spawn();
         }
     }
     public override void OnJoinRandomFailed(short returnCode, string message)
@@ -39,6 +38,11 @@ public class DevRoomManager : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Debug.Log("Комната создана");
+        devspawn.Spawn();
+    }
+    public override void OnConnected()
+    {
+        Debug.Log("Присоединяемся");
         devspawn.Spawn();
     }
 }
