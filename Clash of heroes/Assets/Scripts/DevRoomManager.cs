@@ -7,6 +7,8 @@ public class DevRoomManager : MonoBehaviourPunCallbacks
     public DevSpawn devspawn;
     private void Start()
     {
+        PhotonNetwork.SendRate = 50;
+        PhotonNetwork.SerializationRate = 50;
         PhotonNetwork.ConnectUsingSettings();
     }
     public override void OnConnectedToMaster()
