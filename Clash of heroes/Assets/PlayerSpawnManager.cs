@@ -8,6 +8,12 @@ public class PlayerSpawnManager : MonoBehaviourPun
 
     void Start()
     {
+        if (spawnPoints == null || spawnPoints.Length == 0)
+        {
+            Debug.LogError("Spawn points array is not initialized or empty!");
+            return;
+        }
+
         if (PhotonNetwork.IsMasterClient)
         {
             SpawnPlayer(); // Мастер клиент спавнит себя и отправляет информацию о точке спавна другим
@@ -17,6 +23,7 @@ public class PlayerSpawnManager : MonoBehaviourPun
             RequestSpawnPoint(); // Немастер клиент запрашивает точку спавна
         }
     }
+
 
     void SpawnPlayer(int spawnIndex = -1)
     {
@@ -49,6 +56,13 @@ public class PlayerSpawnManager : MonoBehaviourPun
             Debug.LogError("Player prefab not found in Resources!");
             return;
         }
+
+        if (spawnPoint == null)
+        {
+            Debug.LogError("Spawn point at index " + spawnIndex + " is null!");
+            return;
+        }
+
 
         PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.transform.position, Quaternion.identity);
 
