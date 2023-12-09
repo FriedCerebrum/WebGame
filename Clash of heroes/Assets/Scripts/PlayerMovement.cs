@@ -58,38 +58,38 @@ public class PlayerMovement : MonoBehaviourPunCallbacks, IPunObservable // ахрыш
             }
             if (Mathf.Abs(horizontalMove) < 1f)
             {
-                animator.SetBool("idle", true);
+                //animator.SetBool("idle", true);
             }
             else
             {
-                animator.SetBool("idle", false);
+                //animator.SetBool("idle", false);
             }
             if (controller.IsGrounded() && crouch == true)
             {
-                animator.SetBool("crouch", true);
+                //animator.SetBool("crouch", true);
             }
             else
             {
-                animator.SetBool("crouch", false);
+                //animator.SetBool("crouch", false);
             }
             if (Mathf.Abs(horizontalMove) != 0)
             {
-                animator.SetBool("moving", true);
+                //animator.SetBool("moving", true);
                 moving = true;
             }
             else
             {
-                animator.SetBool("moving", false);
+                //animator.SetBool("moving", false);
                 moving = false;
             }
             if (controller.IsGrounded())
             {
-                animator.SetBool("in_air", false);
+                //animator.SetBool("in_air", false);
                 in_air = false;
             }
             else
             {
-                animator.SetBool("in_air", true);
+                //animator.SetBool("in_air", true);
                 in_air = true;
             }
         }

@@ -22,10 +22,12 @@ public class DevRoomManager : MonoBehaviourPunCallbacks
         if (PhotonNetwork.CountOfRooms == 0)
         {
             PhotonNetwork.CreateRoom("MyRoom", roomOptions);
+            Debug.Log("Creating a new room...");
         }
         else
         {
             PhotonNetwork.JoinRandomRoom();
+            Debug.Log("Joining a random room...");
         }
     }
     public override void OnJoinRandomFailed(short returnCode, string message)
