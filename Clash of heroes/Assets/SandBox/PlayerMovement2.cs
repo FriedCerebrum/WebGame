@@ -43,7 +43,7 @@ public class PlayerMovement2 : MonoBehaviourPun
             controller.TryJump();
         }
 
-        crouch = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
+        crouch = (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)) && !in_air;
 
         moving = Mathf.Abs(horizontalMove) > 0;
     }
