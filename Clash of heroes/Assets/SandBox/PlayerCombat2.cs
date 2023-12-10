@@ -88,32 +88,52 @@ public class PlayerCombat2 : MonoBehaviourPunCallbacks // Наследуем от MonoBehav
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            if (enemy.GetComponent<Entity2>().hp > 0)
+            // Пропускаем итерацию, если объект - сам игрок
+            if (enemy.gameObject == gameObject)
+            {
+                continue;
+            }
+
+            // Получаем компонент Entity2 и проверяем здоровье
+            Entity2 entity = enemy.GetComponent<Entity2>();
+            if (entity != null && entity.hp > 0)
             {
                 Debug.Log("Entity найдён"); // dev
-                if (enemy.GetComponent<ColoredFlash>() != null)
+
+                // Обрабатываем вспышку цвета, если присутствует компонент ColoredFlash
+                ColoredFlash coloredFlash = enemy.GetComponent<ColoredFlash>();
+                if (coloredFlash != null)
                 {
                     Debug.Log("ColoredFlash найдён"); // dev
                     Color flashColor = new Color(0.7f, 0f, 0f);
-                    enemy.GetComponent<ColoredFlash>().Flash(flashColor);
+                    coloredFlash.Flash(flashColor);
                 }
+
+                // Рассчитываем направление отталкивания
                 Vector2 pushDirection = enemy.transform.position - transform.position;
                 pushDirection.Normalize();
-
                 pushDirection += new Vector2(0, 2f);
                 pushDirection.Normalize();
-                Debug.DrawLine(attackPoint.position, (Vector2)attackPoint.position + pushDirection * 2, Color.red, 2f);
+                Debug.DrawLine(LegAttackPoint.position, (Vector2)LegAttackPoint.position + pushDirection * 2, Color.red, 2f);
 
-                enemy.GetComponent<Rigidbody2D>().AddForce(pushDirection * (pushForce * 2f), ForceMode2D.Impulse); // Удар с ноги откидывает в 2 раза сильнее
+                // Применяем силу к Rigidbody2D врага
+                Rigidbody2D enemyRigidbody = enemy.GetComponent<Rigidbody2D>();
+                if (enemyRigidbody != null)
+                {
+                    enemyRigidbody.AddForce(pushDirection * (pushForce * 2f), ForceMode2D.Impulse); // Удар с ноги откидывает в 2 раза сильнее
+                }
 
                 Debug.Log("We hit " + enemy.name); // dev
+
+                // Наносим урон врагу
+                entity.TakeDamage(Random.Range(30, 45));
             }
-            Debug.Log("We hit " + enemy.name); // dev
-            enemy.GetComponent<Entity>().TakeDamage(Random.Range(30, 45));
-            StopCoroutine(SlowLegAttack());
-            playerMovement.runSpeed = playerMovement.originalRunSpeed;
         }
+
+        StopCoroutine(SlowLegAttack());
+        playerMovement.runSpeed = playerMovement.originalRunSpeed;
     }
+
 
     [PunRPC]
     void Attack()

@@ -2491,6 +2491,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 423358275605092109, guid: 331a5bd9b5badcd43ae05f04dd7f7d51, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1951669724653137866, guid: 331a5bd9b5badcd43ae05f04dd7f7d51, type: 3}
       propertyPath: yellowSlider
       value: 

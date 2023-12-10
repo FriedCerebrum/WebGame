@@ -27,6 +27,7 @@ public class PlayerMovement2 : MonoBehaviourPun
         if (photonView.IsMine)
         {
             HandleInput();
+            in_air = !controller.IsGrounded(); // Обновление состояния in_air
         }
 
         UpdateAnimations();
@@ -36,15 +37,13 @@ public class PlayerMovement2 : MonoBehaviourPun
     {
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        jump = Input.GetButtonDown("Jump");
-        if (Input.GetButtonDown("Crouch") && controller.IsGrounded())
+
+        if (Input.GetButtonDown("Jump"))
         {
-            crouch = true;
+            controller.TryJump();
         }
-        else if (Input.GetButtonUp("Crouch"))
-        {
-            crouch = false;
-        }
+
+        crouch = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
 
         moving = Mathf.Abs(horizontalMove) > 0;
     }

@@ -115,10 +115,7 @@ public class CharacterController22D : MonoBehaviourPun
                 }
             }
 
-            if (m_Grounded && jump)
-            {
-                photonView.RPC("PerformJump", RpcTarget.All);
-            }
+
         }
     }
 
@@ -142,4 +139,13 @@ public class CharacterController22D : MonoBehaviourPun
     {
         return m_Grounded;
     }
+
+    public void TryJump()
+    {
+        if (photonView.IsMine && m_Grounded)
+        {
+            PerformJump();
+        }
+    }
+
 }
