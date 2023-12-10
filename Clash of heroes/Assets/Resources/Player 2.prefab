@@ -113,8 +113,6 @@ GameObject:
   - component: {fileID: 3138538371193758129}
   - component: {fileID: 2112929821103139857}
   - component: {fileID: 3611116985669804582}
-  - component: {fileID: 7484232582594654884}
-  - component: {fileID: 6876307325058982076}
   - component: {fileID: 1377363178418731172}
   - component: {fileID: 6834479583980173745}
   m_Layer: 6
@@ -459,34 +457,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flashMaterial: {fileID: 2100000, guid: 65183a0972b37a549a7b8f66fedbd8d1, type: 2}
   duration: 0.5
---- !u!114 &7484232582594654884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4290230505477103086}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9571a351ea707484abf523793d9f52fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  yellowSlider: {fileID: 0}
-  speed: 1
-  entityScript: {fileID: 0}
---- !u!114 &6876307325058982076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4290230505477103086}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a325f124eeb2e343bde19d01d63e29b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthSlider: {fileID: 0}
 --- !u!114 &1377363178418731172
 MonoBehaviour:
   m_ObjectHideFlags: 0
