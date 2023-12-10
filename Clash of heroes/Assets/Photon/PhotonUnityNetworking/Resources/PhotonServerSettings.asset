@@ -42,6 +42,12 @@ MonoBehaviour:
   - CheckPlayersReady
   - ReceiveSpawnPoint
   - RequestSpawnPointFromMaster
+  - Attack
+  - Leg_attack
+  - Second_attack
+  - UpdateHealthRPC
+  - FlipCharacter
+  - PerformJump
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

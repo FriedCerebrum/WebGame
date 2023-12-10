@@ -3,18 +3,18 @@ using UnityEngine;
 
 public class PlayerMovement2 : MonoBehaviourPun
 {
-    public CharacterController2D controller;
+    public CharacterController22D controller;
     public Animator animator;
 
     public float runSpeed = 120f;
     public float originalRunSpeed;
     [SerializeField] private float startCrouchSpeed;
 
-    private float horizontalMove = 0f;
-    private bool jump = false;
-    private bool crouch = false;
-    private bool moving = false;
-    private bool in_air;
+    public float horizontalMove = 0f;
+    public bool jump = false;
+    public bool crouch = false;
+    public bool moving = false;
+    public bool in_air;
 
     private void Start()
     {

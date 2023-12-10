@@ -16,10 +16,4 @@ public class DevSpawn : MonoBehaviour
         PhotonNetwork.Instantiate(player.name, randomPosition, Quaternion.identity);
         Debug.Log("Вы появились, Мисье.");
     }
-    public void SpawnOtherPlayer(Photon.Realtime.Player player)
-    {
-        Vector2 randomPosition = new Vector2(Random.Range(minX, maxX), Random.Range(minY, maxY));
-        PhotonNetwork.Instantiate("PlayerMain", randomPosition, Quaternion.identity);
-        Debug.Log("Заспавнен другой игрок");
-    }
 }
