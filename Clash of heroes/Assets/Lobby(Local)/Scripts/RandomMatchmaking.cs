@@ -17,16 +17,39 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
     public TextMeshProUGUI moneyText;
     public TextMeshProUGUI winsText;
 
+    public TextMeshProUGUI opponentNicknameText;
+    public TextMeshProUGUI opponentLevelText;
+    public TextMeshProUGUI opponentLossesText;
+    public TextMeshProUGUI opponentMoneyText;
+    public TextMeshProUGUI opponentWinsText;
+
+    protected ShowCurrentSelectedCharacter2 opponentChar;
+
+
     void Start()
     {
-        PhotonNetwork.SendRate = 75;
-        PhotonNetwork.SerializationRate = 75;
+
         readyButton.onClick.AddListener(SetPlayerReady);
         readyButton.gameObject.SetActive(false);
 
         
         Debug.Log("MatchmakingManager Start()");
     }
+
+    void SetLocalPlayerProperties()
+    {
+        ExitGames.Client.Photon.Hashtable playerProps = new ExitGames.Client.Photon.Hashtable()
+    {
+        { "Nickname", PlayerPrefs.GetString("Nickname", "N/A") },
+        { "Wins", PlayerPrefs.GetInt("Wins", 0) },
+        { "Money", PlayerPrefs.GetInt("Money", 0) },
+        { "Losses", PlayerPrefs.GetInt("Losses", 0) },
+        { "Level", PlayerPrefs.GetInt("Level", 0) }
+    };
+
+        PhotonNetwork.LocalPlayer.SetCustomProperties(playerProps);
+    }
+
 
     public void FindGame()
     {
@@ -48,6 +71,7 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
 
     public override void OnJoinedRoom()
     {
+        SetLocalPlayerProperties();
         readyButton.gameObject.SetActive(true); // Показываем кнопку готовности
 
         
@@ -107,11 +131,24 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
 
     public override void OnPlayerPropertiesUpdate(Player targetPlayer, ExitGames.Client.Photon.Hashtable changedProps)
     {
-        CheckPlayersReady();
+        base.OnPlayerPropertiesUpdate(targetPlayer, changedProps);
 
-        
-        Debug.Log("OnPlayerPropertiesUpdate() called");
+        // Обновляем UI для оппонента, если целевой игрок - не локальный
+        if (targetPlayer != PhotonNetwork.LocalPlayer)
+        {
+            opponentNicknameText.text = targetPlayer.CustomProperties["Nickname"].ToString();
+            opponentWinsText.text = "Wins: " + targetPlayer.CustomProperties["Wins"].ToString();
+            opponentMoneyText.text = "Money: " + targetPlayer.CustomProperties["Money"].ToString();
+            opponentLossesText.text = "Losses: " + targetPlayer.CustomProperties["Losses"].ToString();
+            opponentLevelText.text = "Level: " + targetPlayer.CustomProperties["Level"].ToString();
+        }
+        if (targetPlayer != PhotonNetwork.LocalPlayer && changedProps.ContainsKey("SelectedCharacter"))
+        {
+            string characterName = changedProps["SelectedCharacter"].ToString();
+            opponentChar.ChangeOpponentCharacterImage(characterName);
+        }
     }
+
 
     void ShowLobby()
     {
@@ -135,4 +172,5 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
         
         Debug.Log("HideLobby() called");
     }
+
 }
