@@ -19,6 +19,8 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
 
     void Start()
     {
+        PhotonNetwork.SendRate = 75;
+        PhotonNetwork.SerializationRate = 75;
         readyButton.onClick.AddListener(SetPlayerReady);
         readyButton.gameObject.SetActive(false);
 

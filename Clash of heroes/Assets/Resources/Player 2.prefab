@@ -385,18 +385,18 @@ MonoBehaviour:
     TeleportIfDistanceGreaterThan: 3
     InterpolateOption: 4
     InterpolateMoveTowardsSpeed: 1
-    InterpolateLerpSpeed: 10
+    InterpolateLerpSpeed: 20
     ExtrapolateOption: 0
     ExtrapolateSpeed: 1
     ExtrapolateIncludingRoundTripTime: 1
     ExtrapolateNumberOfStoredPositions: 1
   m_RotationModel:
-    SynchronizeEnabled: 1
+    SynchronizeEnabled: 0
     InterpolateOption: 1
     InterpolateRotateTowardsSpeed: 180
     InterpolateLerpSpeed: 5
   m_ScaleModel:
-    SynchronizeEnabled: 1
+    SynchronizeEnabled: 0
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
@@ -501,28 +501,28 @@ MonoBehaviour:
   ShowParameterInspector: 1
   m_SynchronizeParameters:
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: idle
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: crouch
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: moving
   - Type: 9
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: dead
   - Type: 9
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: just_kick
   - Type: 9
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: leg_kick
   - Type: 4
-    SynchronizeType: 1
+    SynchronizeType: 2
     Name: in_air
   m_SynchronizeLayers:
-  - SynchronizeType: 1
+  - SynchronizeType: 2
     LayerIndex: 0
 --- !u!1 &5843611770986935045
 GameObject:
