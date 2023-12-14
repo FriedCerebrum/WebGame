@@ -121,7 +121,7 @@ public class RoundManager : MonoBehaviourPun
 
     public void ResetPlayers()
     {
-        playerSpawnManager.DeleteObjectsWithTagRemotely("player");
+        playerSpawnManager.DeleteObjectsWithTagRemotely("Player");
 
         var players = FindObjectsOfType<Entity2>();
         foreach (var player in players)
