@@ -81,7 +81,8 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
             photonView.RPC("ReceiveSpawnPoint", RpcTarget.Others, spawnIndex);
             Debug.Log("Sent spawn point information to other players.");
 
-            PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.transform.position, Quaternion.identity);
+            //PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.transform.position, Quaternion.identity);
+            Debug.Log("Создали игроков/ка через фотон");
         }
     }
 
