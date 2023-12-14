@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class MatchmakingManager : MonoBehaviourPunCallbacks
 {
@@ -22,6 +23,9 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
     public TextMeshProUGUI opponentLossesText;
     public TextMeshProUGUI opponentMoneyText;
     public TextMeshProUGUI opponentWinsText;
+    public event Action<Player, bool> OnPlayerReadyStatusChanged;
+
+    public Text opponentReadyText;
 
     protected ShowCurrentSelectedCharacter2 opponentChar;
 
@@ -78,10 +82,47 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
         Debug.Log("OnJoinedRoom() - Player Count: " + PhotonNetwork.CurrentRoom.PlayerCount);
     }
 
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            // Синхронизация свойств с новым игроком
+            foreach (var player in PhotonNetwork.CurrentRoom.Players.Values)
+            {
+                if (player != newPlayer)
+                {
+                    player.SetCustomProperties(player.CustomProperties);
+                }
+            }
+        }
+
+        if (newPlayer != PhotonNetwork.LocalPlayer)
+        {
+            bool isOpponentReady = newPlayer.CustomProperties.TryGetValue("isReady", out object isReadyValue) && (bool)isReadyValue;
+            opponentReadyText.text = isOpponentReady ? "Opponent was ready" : "Opponent was not ready";
+        }
+
+        // Обновление UI для всех игроков
+        UpdateOpponentUI(newPlayer);
+    }
+
+    void UpdateOpponentUI(Player targetPlayer)
+    {
+        if (targetPlayer != PhotonNetwork.LocalPlayer)
+        {
+            // Обновление UI для оппонента
+            opponentNicknameText.text = targetPlayer.CustomProperties["Nickname"].ToString();
+            opponentWinsText.text = "Wins: " + targetPlayer.CustomProperties["Wins"].ToString();
+            opponentMoneyText.text = "Money: " + targetPlayer.CustomProperties["Money"].ToString();
+            opponentLossesText.text = "Losses: " + targetPlayer.CustomProperties["Losses"].ToString();
+            opponentLevelText.text = "Level: " + targetPlayer.CustomProperties["Level"].ToString();
+        }
+    }
+
     void SetPlayerReady()
     {
         isPlayerReady = !isPlayerReady;
-        readyButton.GetComponentInChildren<Text>().text = isPlayerReady ? "Не готов" : "Готов";
+        readyButton.GetComponentInChildren<Text>().text = isPlayerReady ? "Ready" : "Not Ready";
 
         // Обновление CustomProperties
         ExitGames.Client.Photon.Hashtable properties = new ExitGames.Client.Photon.Hashtable
@@ -90,7 +131,8 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
     };
         PhotonNetwork.LocalPlayer.SetCustomProperties(properties);
 
-        photonView.RPC("CheckPlayersReady", RpcTarget.AllBuffered);
+        // Проверяем готовность всех игроков
+        CheckPlayersReady();
 
         Debug.Log("SetPlayerReady() - isPlayerReady: " + isPlayerReady);
     }
@@ -105,20 +147,18 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
             {
                 if (!player.CustomProperties.TryGetValue("isReady", out object isReadyValue) || !(bool)isReadyValue)
                 {
-                    Debug.Log("Не все игроки готовы.");
+                    Debug.Log($"[MatchmakingManager] Не все игроки готовы: {player.NickName} не готов.");
                     return;
                 }
             }
 
-            Debug.Log("Все игроки готовы. Загружаем арену.");
+            Debug.Log("[MatchmakingManager] Все игроки готовы. Загружаем арену.");
             LoadArena();
         }
         else
         {
-            Debug.Log("В комнате не достаточно игроков.");
+            Debug.Log("[MatchmakingManager] В комнате не достаточно игроков.");
         }
-
-        Debug.Log("CheckPlayersReady() called");
     }
 
 
@@ -133,20 +173,35 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
     {
         base.OnPlayerPropertiesUpdate(targetPlayer, changedProps);
 
-        // Обновляем UI для оппонента, если целевой игрок - не локальный
-        if (targetPlayer != PhotonNetwork.LocalPlayer)
+        // Добавляем вызов CheckPlayersReady, чтобы реагировать на изменения свойств
+        if (changedProps.ContainsKey("isReady"))
         {
-            opponentNicknameText.text = targetPlayer.CustomProperties["Nickname"].ToString();
-            opponentWinsText.text = "Wins: " + targetPlayer.CustomProperties["Wins"].ToString();
-            opponentMoneyText.text = "Money: " + targetPlayer.CustomProperties["Money"].ToString();
-            opponentLossesText.text = "Losses: " + targetPlayer.CustomProperties["Losses"].ToString();
-            opponentLevelText.text = "Level: " + targetPlayer.CustomProperties["Level"].ToString();
+        CheckPlayersReady();
         }
-        if (targetPlayer != PhotonNetwork.LocalPlayer && changedProps.ContainsKey("SelectedCharacter"))
+
+        // Добавляем проверку на null
+        if (opponentReadyText != null && targetPlayer != PhotonNetwork.LocalPlayer && changedProps.ContainsKey("isReady"))
         {
-            string characterName = changedProps["SelectedCharacter"].ToString();
-            opponentChar.ChangeOpponentCharacterImage(characterName);
+            bool isOpponentReady = (bool)changedProps["isReady"];
+            opponentReadyText.text = isOpponentReady ? "Opponent was ready" : "Opponent was not ready";
         }
+
+        // Проверяем и обновляем UI, если объекты инициализированы
+        if (opponentNicknameText != null && opponentWinsText); // и другие проверки)
+    {
+            UpdateOpponentUI(targetPlayer);
+        }
+    }
+
+
+
+    void UpdatePlayerReadyStatus(Player player, bool isReady)
+    {
+        player.CustomProperties["isReady"] = isReady;
+        player.SetCustomProperties(player.CustomProperties);
+        OnPlayerReadyStatusChanged?.Invoke(player, isReady);
+
+        Debug.Log($"[MatchmakingManager] Обновлен статус готовности игрока {player.NickName}: {isReady}");
     }
 
 
@@ -172,5 +227,24 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
         
         Debug.Log("HideLobby() called");
     }
+
+    public void LeaveLobby()
+    {
+        // Отключение от комнаты
+        PhotonNetwork.LeaveRoom();
+        lobbyObject.SetActive(false); 
+        SearcherScreenObject.SetActive(true); // Показываем объект поиска игры
+
+        // Здесь можно добавить дополнительную логику
+
+        Debug.Log("Вы вышли из лобби");
+    }
+
+    public override void OnLeftRoom()
+    {
+        // Этот метод вызывается, когда игрок успешно покидает комнату
+        Debug.Log("Вы покинули комнату Photon");
+    }
+
 
 }

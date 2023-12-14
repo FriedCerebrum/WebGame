@@ -1,10 +1,12 @@
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class PlayerSpawnManager : MonoBehaviourPun
+public class PlayerSpawnManager : MonoBehaviourPunCallbacks
 {
     public GameObject[] spawnPoints; // Массив точек спавна
+    private Entity2 entity2;
 
     void Start()
     {
@@ -105,4 +107,68 @@ public class PlayerSpawnManager : MonoBehaviourPun
             Debug.Log("Sent spawn point information to requesting client.");
         }
     }
+
+    public void RespawnPlayers()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            Debug.Log("Respawning players for new round.");
+
+            // Удаление старых игроков
+            var existingPlayers = GameObject.FindGameObjectsWithTag("Player");
+            foreach (var player in existingPlayers)
+            {
+                if (player.GetComponent<PhotonView>() && player.GetComponent<PhotonView>().IsMine)
+                {
+                    PhotonNetwork.Destroy(player);
+                }
+            }
+
+            // Спавн новых игроков
+            SpawnPlayer();
+        }
+        else
+        {
+            Debug.LogWarning("Non-master client attempted to respawn players.");
+        }
+    }
+
+
+    public override void OnPlayerLeftRoom(Player otherPlayer)
+    {
+        Debug.Log("Player left room: " + otherPlayer.NickName);
+
+        // Проверяем количество оставшихся игроков в комнате
+        if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+        {
+            Debug.Log("Only one player left in the room. Redirecting to the lobby.");
+            // написать запрос на добавление 1 победы в firebase
+            LoadLobbyScene();  // Перенаправляем оставшегося игрока в лобби
+        }
+    }
+
+    private void LoadLobbyScene()
+    {
+        // Выкидываем игрока в лобби, если второй ливнул
+        string lobbySceneName = "Lobby(Local)";
+        SceneManager.LoadScene(lobbySceneName);
+    }
+
+    public void DeleteObjectsWithTagRemotely(string tag)
+    {
+        // Вызывайте удаленный метод с использованием RPC
+        photonView.RPC("DeleteObjectsWithTagRPC", RpcTarget.All, tag);
+    }
+
+    [PunRPC]
+    private void DeleteObjectsWithTagRPC(string tag)
+    {
+        // Здесь вы можете реализовать удаление объектов с указанной меткой
+        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tag);
+        foreach (GameObject obj in objectsWithTag)
+        {
+            Destroy(obj);
+        }
+    }
+
 }

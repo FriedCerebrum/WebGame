@@ -44,6 +44,9 @@ public class AuthManager : MonoBehaviour
     public int money;
     public int wins;
 
+    [Header("General Info")]
+    public TMP_Text generalInfoText;
+
 
     void Awake()
     {
@@ -125,7 +128,7 @@ public class AuthManager : MonoBehaviour
             User = LoginTask.Result.User;
             Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
             warningLoginText.text = "";
-            confirmLoginText.text = "Logged In";
+            UpdateUIText(generalInfoText, "Logged In");
             PlayerId = User.UserId;
             PlayerPrefs.SetString("PlayerId", PlayerId);
             PlayerPrefs.Save();
@@ -159,6 +162,8 @@ public class AuthManager : MonoBehaviour
                 Debug.LogWarning(message: $"Failed to register task with {RegisterTask.Exception}");
                 FirebaseException firebaseEx = RegisterTask.Exception.GetBaseException() as FirebaseException;
                 AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
+                UpdateUIText(generalInfoText, RegisterTask.Exception.ToString());
+
 
                 string message = "Register Failed!";
                 switch (errorCode)
@@ -174,6 +179,7 @@ public class AuthManager : MonoBehaviour
                         break;
                     case AuthError.EmailAlreadyInUse:
                         message = "Email Already In Use";
+                        
                         break;
                 }
                 warningRegisterText.text = message;
@@ -200,7 +206,7 @@ public class AuthManager : MonoBehaviour
                         Debug.LogWarning(message: $"Failed to register task with {ProfileTask.Exception}");
                         FirebaseException firebaseEx = ProfileTask.Exception.GetBaseException() as FirebaseException;
                         AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
-                        warningRegisterText.text = "Username Set Failed!";
+                        UpdateUIText(generalInfoText, "Username Set Failed!");
                     }
                     else
                     {
@@ -227,6 +233,7 @@ public class AuthManager : MonoBehaviour
                                     if (task.IsCompleted)
                                     {
                                         Debug.Log("Player data added to Firestore");
+                                        UpdateUIText(generalInfoText, "Account was created");
                                         PlayerId = User.UserId;
                                         warningRegisterText.text = "";
                                         SceneManager.LoadScene(menuSceneName);
@@ -249,4 +256,20 @@ public class AuthManager : MonoBehaviour
             }
         }
     }
+
+    private void UpdateUIText(TMP_Text textComponent, string message)
+    {
+        if (textComponent != null)
+        {
+            textComponent.text = message;
+        }
+        else
+        {
+            Debug.LogWarning("Text component is not assigned!");
+        }
+    }
+
+
+
+
 }

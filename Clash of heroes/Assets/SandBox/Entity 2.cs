@@ -1,7 +1,8 @@
 using UnityEngine;
-using Photon.Pun; // Добавляем библиотеку Photon
+using Photon.Pun;
+using System.Collections;
 
-public class Entity2 : MonoBehaviourPunCallbacks // Наследуем от MonoBehaviourPunCallbacks
+public class Entity2 : MonoBehaviourPunCallbacks
 {
     public int maxHp = 100;
     public Animator animator;
@@ -11,15 +12,18 @@ public class Entity2 : MonoBehaviourPunCallbacks // Наследуем от MonoBehaviourPu
     public bool HasFPressed = false;
 
     public int hp;
+    private bool canDie = true; // Внешний флажок для разрешения вызова Die()
+
+    private RoundManager roundManager;
 
     void Start()
     {
         hp = maxHp;
+        roundManager = FindObjectOfType<RoundManager>();
     }
 
     void Update()
     {
-        // Проверка на локального игрока
         if (photonView.IsMine)
         {
             if (Input.GetKeyDown(KeyCode.F) && !HasFPressed && gameObject.layer == LayerMask.NameToLayer("Player"))
@@ -33,8 +37,7 @@ public class Entity2 : MonoBehaviourPunCallbacks // Наследуем от MonoBehaviourPu
             }
         }
 
-        // Проверка смерти персонажа
-        if (hp <= 0)
+        if (hp <= 0 && canDie) // Проверяем флажок canDie
         {
             Die();
         }
@@ -42,6 +45,7 @@ public class Entity2 : MonoBehaviourPunCallbacks // Наследуем от MonoBehaviourPu
 
     private void Die()
     {
+        Debug.Log("Умираем");
         rb.isKinematic = true;
         col.enabled = false;
         if (animator != null)
@@ -49,6 +53,32 @@ public class Entity2 : MonoBehaviourPunCallbacks // Наследуем от MonoBehaviourPu
             animator.SetBool("dead", true);
         }
         rb.velocity = Vector3.zero;
+        SetCantDie(); // Запрещаем дальнейшие вызовы Die()
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+
+            StartCoroutine(WaitAndStartNewRound());
+        }
+        else
+        {
+            
+        }
+    }
+
+    public void ResetCanDie()
+    {
+        canDie = true;
+    }
+    public void SetCantDie()
+    {
+        canDie = false;
+    }
+
+    private IEnumerator WaitAndStartNewRound()
+    {
+        yield return new WaitForSeconds(2.0f);
+        roundManager.StartNewRound();
     }
 
     public void TakeDamage(int damage)
