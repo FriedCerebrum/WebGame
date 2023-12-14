@@ -14132,7 +14132,7 @@ MonoBehaviour:
   lobbyObject: {fileID: 398167785}
   SearcherScreenObject: {fileID: 367321198}
   readyButton: {fileID: 30944600}
-  nicknameText: {fileID: 1281925301}
+  nicknameText: {fileID: 386051260}
   levelText: {fileID: 188701413}
   lossesText: {fileID: 5128760}
   moneyText: {fileID: 271755126}
