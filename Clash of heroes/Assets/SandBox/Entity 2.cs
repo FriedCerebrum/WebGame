@@ -19,7 +19,7 @@ public class Entity2 : MonoBehaviourPunCallbacks
     void Start()
     {
         hp = maxHp;
-        roundManager = FindObjectOfType<RoundManager>();
+        //roundManager = FindObjectOfType<RoundManager>();
     }
 
     void Update()
@@ -55,15 +55,15 @@ public class Entity2 : MonoBehaviourPunCallbacks
         rb.velocity = Vector3.zero;
         SetCantDie(); // Запрещаем дальнейшие вызовы Die()
 
-        if (PhotonNetwork.IsMasterClient)
-        {
+        //if (PhotonNetwork.IsMasterClient)
+        //{
 
-            StartCoroutine(WaitAndStartNewRound());
-        }
-        else
-        {
+        //    StartCoroutine(WaitAndStartNewRound());
+        //}
+        //else
+        //{
             
-        }
+        //}
     }
 
     public void ResetCanDie()
@@ -75,11 +75,11 @@ public class Entity2 : MonoBehaviourPunCallbacks
         canDie = false;
     }
 
-    private IEnumerator WaitAndStartNewRound()
-    {
-        yield return new WaitForSeconds(2.0f);
-        roundManager.StartNewRound();
-    }
+    //private IEnumerator WaitAndStartNewRound()
+    //{
+    //    yield return new WaitForSeconds(2.0f);
+    //    roundManager.StartNewRound();
+    //}
 
     public void TakeDamage(int damage)
     {

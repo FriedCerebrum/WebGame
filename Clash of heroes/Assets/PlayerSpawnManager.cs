@@ -7,134 +7,153 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
 {
     public GameObject[] spawnPoints; // Массив точек спавна
     private Entity2 entity2;
+    PhotonView view;
 
     void Start()
     {
-        if (spawnPoints == null || spawnPoints.Length == 0)
-        {
-            Debug.LogError("Spawn points array is not initialized or empty!");
-            return;
-        }
+        //if (spawnPoints == null || spawnPoints.Length == 0)
+        //{
+        //    Debug.LogError("Spawn points array is not initialized or empty!");
+        //    return;
+        //}
 
-        Debug.Log("PlayerSpawnManager Start() called.");
+        //Debug.Log("PlayerSpawnManager Start() called.");
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-            Debug.Log("Master client detected. Spawning player...");
-            SpawnPlayer(); // Мастер клиент спавнит себя и отправляет информацию о точке спавна другим
-        }
-        else
-        {
-            Debug.Log("Non-master client detected. Requesting spawn point...");
-            RequestSpawnPoint(); // Немастер клиент запрашивает точку спавна
-        }
+        //if (PhotonNetwork.IsMasterClient)
+        //{
+        //    Debug.Log("Master client detected. Spawning player...");
+        //    SpawnPlayer(); // Мастер клиент спавнит себя и отправляет информацию о точке спавна другим
+        //}
+        //else
+        //{
+        //    Debug.Log("Non-master client detected. Requesting spawn point...");
+        //    RequestSpawnPoint(); // Немастер клиент запрашивает точку спавна
+        //}
+
+        view = GetComponent<PhotonView>();
+
+        SpawnPlayer();
+
     }
 
     void SpawnPlayer(int spawnIndex = -1)
     {
-        Debug.Log("SpawnPlayer() called with spawnIndex: " + spawnIndex);
+        //Debug.Log("SpawnPlayer() called with spawnIndex: " + spawnIndex);
 
-        if (spawnPoints == null || spawnPoints.Length == 0)
-        {
-            Debug.LogError("Spawn points array is not initialized or empty!");
-            return;
-        }
+        //if (spawnPoints == null || spawnPoints.Length == 0)
+        //{
+        //    Debug.LogError("Spawn points array is not initialized or empty!");
+        //    return;
+        //}
 
-        GameObject spawnPoint;
+        //GameObject spawnPoint;
 
-        if (spawnIndex == -1)
-        {
-            // Рандомный выбор точки спавна для мастер клиента
-            spawnIndex = Random.Range(0, spawnPoints.Length);
-            Debug.Log("Random spawn index selected: " + spawnIndex);
-        }
+        //if (spawnIndex == -1)
+        //{
+        //    // Рандомный выбор точки спавна для мастер клиента
+        //    spawnIndex = Random.Range(0, spawnPoints.Length);
+        //    Debug.Log("Random spawn index selected: " + spawnIndex);
+        //}
 
-        spawnPoint = spawnPoints[spawnIndex];
+        //spawnPoint = spawnPoints[spawnIndex];
 
-        // Проверяем, не является ли spawnPoint null
-        if (spawnPoint == null)
-        {
-            Debug.LogError("Spawn point at index " + spawnIndex + " is null!");
-            return;
-        }
+        //// Проверяем, не является ли spawnPoint null
+        //if (spawnPoint == null)
+        //{
+        //    Debug.LogError("Spawn point at index " + spawnIndex + " is null!");
+        //    return;
+        //}
 
-        Debug.Log("Spawning player at spawn point index: " + spawnIndex);
+        //Debug.Log("Spawning player at spawn point index: " + spawnIndex);
 
-        GameObject playerPrefab = Resources.Load<GameObject>("Player 2");
-        if (playerPrefab == null)
-        {
-            Debug.LogError("Player prefab not found in Resources!");
-            return;
-        }
+        //GameObject playerPrefab = Resources.Load<GameObject>("Player 2");
+        //if (playerPrefab == null)
+        //{
+        //    Debug.LogError("Player prefab not found in Resources!");
+        //    return;
+        //}
 
-        if (spawnPoint == null)
-        {
-            Debug.LogError("Spawn point at index " + spawnIndex + " is null!");
-            return;
-        }
+        //if (spawnPoint == null)
+        //{
+        //    Debug.LogError("Spawn point at index " + spawnIndex + " is null!");
+        //    return;
+        //}
 
-       
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-            // Отправляем информацию о точке спавна остальным игрокам
-            photonView.RPC("ReceiveSpawnPoint", RpcTarget.Others, spawnIndex);
-            Debug.Log("Sent spawn point information to other players.");
 
-            //PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.transform.position, Quaternion.identity);
-            Debug.Log("Создали игроков/ка через фотон");
-        }
+        //if (PhotonNetwork.IsMasterClient)
+        //{
+        //    // Отправляем информацию о точке спавна остальным игрокам
+        //    photonView.RPC("ReceiveSpawnPoint", RpcTarget.Others, spawnIndex);
+        //    Debug.Log("Sent spawn point information to other players.");
+
+        //    PhotonNetwork.Instantiate(playerPrefab.name, spawnPoint.transform.position, Quaternion.identity);
+        //    Debug.Log("Создали игроков/ка через фотон");
+        //}
+
+
+
+        Vector2 randomPosition = new Vector2(Random.Range(minX, minY), Random.Range(maxX, maxY));
+        PhotonNetwork.Instantiate(player.name, randomPosition, Quaternion.identity);
+        Debug.Log("Вы появились, Мисье.");
+
+
+
+
+
+
+
     }
 
-    [PunRPC]
-    void ReceiveSpawnPoint(int spawnIndex)
-    {
-        Debug.Log("Received spawn point request. Spawning player at index: " + spawnIndex);
-        SpawnPlayer(spawnIndex);
-    }
+    //[PunRPC]
+    //void ReceiveSpawnPoint(int spawnIndex)
+    //{
+    //    Debug.Log("Received spawn point request. Spawning player at index: " + spawnIndex);
+    //    SpawnPlayer(spawnIndex);
+    //}
 
-    void RequestSpawnPoint()
-    {
-        Debug.Log("Requesting spawn point from master client.");
-        photonView.RPC("RequestSpawnPointFromMaster", RpcTarget.MasterClient);
-    }
+    //void RequestSpawnPoint()
+    //{
+    //    Debug.Log("Requesting spawn point from master client.");
+    //    photonView.RPC("RequestSpawnPointFromMaster", RpcTarget.MasterClient);
+    //}
 
-    [PunRPC]
-    void RequestSpawnPointFromMaster()
-    {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            // Отправляем информацию о точке спавна запрашивающему
-            int spawnIndex = Random.Range(0, spawnPoints.Length);
-            photonView.RPC("ReceiveSpawnPoint", photonView.Owner, spawnIndex);
-            Debug.Log("Sent spawn point information to requesting client.");
-        }
-    }
+    //[PunRPC]
+    //void RequestSpawnPointFromMaster()
+    //{
+    //    if (PhotonNetwork.IsMasterClient)
+    //    {
+    //        // Отправляем информацию о точке спавна запрашивающему
+    //        int spawnIndex = Random.Range(0, spawnPoints.Length);
+    //        photonView.RPC("ReceiveSpawnPoint", photonView.Owner, spawnIndex);
+    //        Debug.Log("Sent spawn point information to requesting client.");
+    //    }
+    //}
 
-    public void RespawnPlayers()
-    {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            Debug.Log("Respawning players for new round.");
+    //public void RespawnPlayers()
+    //{
+    //    if (PhotonNetwork.IsMasterClient)
+    //    {
+    //        Debug.Log("Respawning players for new round.");
 
-            // Удаление старых игроков
-            var existingPlayers = GameObject.FindGameObjectsWithTag("Player");
-            foreach (var player in existingPlayers)
-            {
-                if (player.GetComponent<PhotonView>() && player.GetComponent<PhotonView>().IsMine)
-                {
-                    PhotonNetwork.Destroy(player);
-                }
-            }
+    //        // Удаление старых игроков
+    //        var existingPlayers = GameObject.FindGameObjectsWithTag("Player");
+    //        foreach (var player in existingPlayers)
+    //        {
+    //            if (player.GetComponent<PhotonView>() && player.GetComponent<PhotonView>().IsMine)
+    //            {
+    //                PhotonNetwork.Destroy(player);
+    //            }
+    //        }
 
-            // Спавн новых игроков
-            SpawnPlayer();
-        }
-        else
-        {
-            Debug.LogWarning("Non-master client attempted to respawn players.");
-        }
-    }
+    //        // Спавн новых игроков
+    //        SpawnPlayer();
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("Non-master client attempted to respawn players.");
+    //    }
+    //}
 
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
@@ -157,21 +176,21 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
         SceneManager.LoadScene(lobbySceneName);
     }
 
-    public void DeleteObjectsWithTagRemotely(string tag)
-    {
-        // Вызывайте удаленный метод с использованием RPC
-        photonView.RPC("DeleteObjectsWithTagRPC", RpcTarget.All, tag);
-    }
+    //public void DeleteObjectsWithTagRemotely(string tag)
+    //{
+    //    // Вызывайте удаленный метод с использованием RPC
+    //    photonView.RPC("DeleteObjectsWithTagRPC", RpcTarget.All, tag);
+    //}
 
-    [PunRPC]
-    private void DeleteObjectsWithTagRPC(string tag)
-    {
-        // Здесь вы можете реализовать удаление объектов с указанной меткой
-        GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tag);
-        foreach (GameObject obj in objectsWithTag)
-        {
-            Destroy(obj);
-        }
-    }
+    //[PunRPC]
+    //private void DeleteObjectsWithTagRPC(string tag)
+    //{
+    //    // Здесь вы можете реализовать удаление объектов с указанной меткой
+    //    GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag(tag);
+    //    foreach (GameObject obj in objectsWithTag)
+    //    {
+    //        Destroy(obj);
+    //    }
+    //}
 
 }
