@@ -23,7 +23,7 @@ public class AttachTextAbovePlayer : MonoBehaviourPun
             playerText.transform.position = transform.position + offset;
 
             // Закрепляем текстовое поле к игроку, чтобы оно двигалось вместе с ним
-            playerText.transform.parent = transform;
+            playerText.transform.SetParent(transform, false); // Установка false для worldPositionStays
         }
     }
 }
