@@ -16,7 +16,6 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
 
         view = GetComponent<PhotonView>();
         // Ищем компонент Entity2 на этом же объекте
-        entity2 = GetComponent<Entity2>();
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -36,8 +35,12 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
         slaveSpawnPoint = spawnPoints[slaveIndex];
 
         // Спавн мастер-клиента
-        PhotonNetwork.Instantiate(player.name, masterSpawnPoint.position, Quaternion.identity);
-        entity2.ResetCanDie();
+        GameObject masterPlayer = PhotonNetwork.Instantiate(player.name, masterSpawnPoint.position, Quaternion.identity);
+        Entity2 masterEntity = masterPlayer.GetComponent<Entity2>();
+        if (masterEntity != null)
+        {
+            masterEntity.ResetCanDie();
+        }
 
 
         // Отправка данных о точке спавна slave-клиенту
