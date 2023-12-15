@@ -927,14 +927,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b6ed00befb35c46b8a4184c6dfa8b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoints:
-  - {fileID: 1260493551}
-  - {fileID: 995781378}
   player: {fileID: 4290230505477103086, guid: f89e9d213ced37742b189a374fc9ab23, type: 3}
   minX: 0
   minY: 0
   maxX: 0
   maxY: 0
+  spawnPoints:
+  - {fileID: 1260493552}
+  - {fileID: 995781379}
 --- !u!4 &317705752
 Transform:
   m_ObjectHideFlags: 0

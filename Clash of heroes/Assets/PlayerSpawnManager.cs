@@ -5,11 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayerSpawnManager : MonoBehaviourPunCallbacks
 {
-    public GameObject[] spawnPoints; // Массив точек спавна
+    //public GameObject[] spawnPoints; // Массив точек спавна
     private Entity2 entity2;
     PhotonView view;
     public GameObject player;
     public float minX, minY, maxX, maxY;
+    public Transform[] spawnPoints;
+    private Vector3 mySpawnPosition;
 
     void Start()
     {
@@ -34,7 +36,16 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
 
         view = GetComponent<PhotonView>();
 
-        SpawnPlayer();
+        //if (PhotonNetwork.IsMasterClient)
+        //{
+        //    DetermineSpawnPoints();
+        //}
+
+        if (PhotonNetwork.IsMasterClient)
+        {
+            SpawnPlayers();
+        }
+
 
     }
 
@@ -95,9 +106,33 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
 
 
 
-        Vector2 randomPosition = new Vector2(Random.Range(minX, minY), Random.Range(maxX, maxY));
-        PhotonNetwork.Instantiate(player.name, randomPosition, Quaternion.identity);
-        Debug.Log("Вы появились, Мисье.");
+        //Vector2 randomPosition = new Vector2(Random.Range(minX, minY), Random.Range(maxX, maxY));
+        //PhotonNetwork.Instantiate(player.name, randomPosition, Quaternion.identity);                            - рабочая реализация.
+        //Debug.Log("Вы появились, Мисье.");
+
+
+
+        Transform masterSpawnPoint, slaveSpawnPoint;
+
+        // Выбор случайных точек спавна
+        int masterIndex = Random.Range(0, spawnPoints.Length);
+        int slaveIndex = (masterIndex + 1) % spawnPoints.Length;
+
+        masterSpawnPoint = spawnPoints[masterIndex];
+        slaveSpawnPoint = spawnPoints[slaveIndex];
+
+        // Спавн мастер-клиента
+        PhotonNetwork.Instantiate(player.name, masterSpawnPoint.position, Quaternion.identity);
+
+        // Отправка данных о точке спавна slave-клиенту
+        photonView.RPC("SpawnSlavePlayer", RpcTarget.Others, slaveSpawnPoint.position);
+
+
+
+
+
+
+
 
 
 
@@ -194,5 +229,48 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     //        Destroy(obj);
     //    }
     //}
+
+    //public void DetermineSpawnPoints()
+    //{
+    //    if (PhotonNetwork.IsMasterClient)
+    //    {
+    //        int spawnPointIndex1 = Random.Range(0, spawnPoints.Length);
+    //        int spawnPointIndex2;
+    //        do
+    //        {
+    //            spawnPointIndex2 = Random.Range(0, spawnPoints.Length);
+    //        } while (spawnPointIndex2 == spawnPointIndex1);
+
+    //        Vector3 spawnPos1 = spawnPoints[spawnPointIndex1].position;
+    //        Vector3 spawnPos2 = spawnPoints[spawnPointIndex2].position;
+
+    //        photonView.RPC("SetSpawnPoints", RpcTarget.Others, spawnPos1, spawnPos2);
+    //    }
+    //}
+
+    //[PunRPC]
+    //public virtual void SetSpawnPoints(Vector3 spawnPos1, Vector3 spawnPos2)
+    //{
+    //    // Здесь можно определить, какой из спавн-поинтов будет использоваться для данного клиента
+    //    mySpawnPosition = PhotonNetwork.IsMasterClient ? spawnPos1 : spawnPos2;
+    //    SpawnPlayer();
+    //}
+
+    //[PunRPC]
+    //void BroadcastSpawnPoints(Vector3 spawnPoint1, Vector3 spawnPoint2)
+    //{
+    //    // Отправить точки спавна всем клиентам
+    //    photonView.RPC("ReceiveSpawnPoint", RpcTarget.Others, spawnPoint1, spawnPoint2);
+    //}
+
+
+    [PunRPC]
+    void SpawnSlavePlayer(Vector3 spawnPosition)
+    {
+        PhotonNetwork.Instantiate(player.name, spawnPosition, Quaternion.identity);
+    }
+
+
+
 
 }
