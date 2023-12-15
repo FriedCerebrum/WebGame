@@ -14,7 +14,7 @@ public class Entity2 : MonoBehaviourPunCallbacks
     public int hp;
     private bool canDie = true; // Внешний флажок для разрешения вызова Die()
 
-    private RoundManager roundManager;
+    //private RoundManager roundManager;
 
     void Start()
     {
