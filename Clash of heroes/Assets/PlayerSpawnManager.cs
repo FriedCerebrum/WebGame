@@ -49,7 +49,7 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
 
     }
 
-    void SpawnPlayer(int spawnIndex = -1)
+    void SpawnPlayers(int spawnIndex = -1)
     {
         //Debug.Log("SpawnPlayer() called with spawnIndex: " + spawnIndex);
 
