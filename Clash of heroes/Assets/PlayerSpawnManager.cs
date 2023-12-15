@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerSpawnManager : MonoBehaviourPunCallbacks
 {
     //public GameObject[] spawnPoints; // Массив точек спавна
-    private Entity2 entity2;
+    Entity2 entity2;
     PhotonView view;
     public GameObject player;
     public float minX, minY, maxX, maxY;

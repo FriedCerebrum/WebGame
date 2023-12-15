@@ -9,7 +9,7 @@ public class RoundManager : MonoBehaviourPun
     public int totalRounds = 3;
     private int currentRound = 0;
     public Text roundText;
-    private PlayerSpawnManager playerSpawnManager;
+    PlayerSpawnManager playerSpawnManager;
 
     public GameObject statisticsPanel; // Панель со статистикой
     public Text countdownText; // Текст для отображения таймера
