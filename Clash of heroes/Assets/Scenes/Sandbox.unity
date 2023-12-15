@@ -930,7 +930,7 @@ MonoBehaviour:
   spawnPoints:
   - {fileID: 1260493551}
   - {fileID: 995781378}
-  player: {fileID: 0}
+  player: {fileID: 4290230505477103086, guid: f89e9d213ced37742b189a374fc9ab23, type: 3}
   minX: 0
   minY: 0
   maxX: 0
