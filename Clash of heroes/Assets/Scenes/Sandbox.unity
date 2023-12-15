@@ -908,6 +908,7 @@ GameObject:
   - component: {fileID: 317705753}
   - component: {fileID: 317705754}
   - component: {fileID: 317705755}
+  - component: {fileID: 317705756}
   m_Layer: 0
   m_Name: PlayerSpawnManager
   m_TagString: Untagged
@@ -1000,6 +1001,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b60a581519862346abedf23a5c4a030, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &317705756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 317705750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91d4cf79865ddce4ea2a2ea4df5b2844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  localPlayerNameTag: {fileID: 3466498131287555898, guid: 107a12fe14a8e5042b55026a2782377c, type: 3}
+  remotePlayerNameTag: {fileID: 2805965360312688631, guid: 956bd40293ff44742a1f9ead2d0ecf8c, type: 3}
 --- !u!1 &364980421
 GameObject:
   m_ObjectHideFlags: 0

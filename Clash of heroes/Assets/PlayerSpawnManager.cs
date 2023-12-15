@@ -12,6 +12,7 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     public float minX, minY, maxX, maxY;
     public Transform[] spawnPoints;
     private Vector3 mySpawnPosition;
+    PlayerNameTagManager playerNameTagManager;
 
     void Start()
     {
@@ -122,7 +123,10 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
         slaveSpawnPoint = spawnPoints[slaveIndex];
 
         // Спавн мастер-клиента
-        PhotonNetwork.Instantiate(player.name, masterSpawnPoint.position, Quaternion.identity);
+        //PhotonNetwork.Instantiate(player.name, masterSpawnPoint.position, Quaternion.identity);         - рабочая реализация
+
+        GameObject playerInstance = PhotonNetwork.Instantiate(player.name, masterSpawnPoint.position, Quaternion.identity);
+        playerNameTagManager.AssignNameTag(playerInstance);
 
         // Отправка данных о точке спавна slave-клиенту
         photonView.RPC("SpawnSlavePlayer", RpcTarget.Others, slaveSpawnPoint.position);
@@ -267,7 +271,8 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     [PunRPC]
     void SpawnSlavePlayer(Vector3 spawnPosition)
     {
-        PhotonNetwork.Instantiate(player.name, spawnPosition, Quaternion.identity);
+        GameObject playerInstance = PhotonNetwork.Instantiate(player.name, spawnPosition, Quaternion.identity);
+        playerNameTagManager.AssignNameTag(playerInstance);
     }
 
 
