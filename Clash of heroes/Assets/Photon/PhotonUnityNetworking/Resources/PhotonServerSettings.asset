@@ -50,6 +50,7 @@ MonoBehaviour:
   - PerformJump
   - DeleteObjectsWithTagRPC
   - SetSpawnPoints
+  - SpawnSlavePlayer
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
