@@ -12,7 +12,8 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     public float minX, minY, maxX, maxY;
     public Transform[] spawnPoints;
     private Vector3 mySpawnPosition;
-    PlayerNameTagManager playerNameTagManager;
+    public GameObject textPrefab; // Ссылка на текстовое поле, которое нужно отобразить
+    private GameObject playerText; // Ссылка на текстовое поле, которое будет отображаться
 
     void Start()
     {
@@ -123,10 +124,9 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
         slaveSpawnPoint = spawnPoints[slaveIndex];
 
         // Спавн мастер-клиента
-        //PhotonNetwork.Instantiate(player.name, masterSpawnPoint.position, Quaternion.identity);         - рабочая реализация
+        PhotonNetwork.Instantiate(player.name, masterSpawnPoint.position, Quaternion.identity);         
 
-        GameObject playerInstance = PhotonNetwork.Instantiate(player.name, masterSpawnPoint.position, Quaternion.identity);
-        playerNameTagManager.AssignNameTag(playerInstance);
+       
 
         // Отправка данных о точке спавна slave-клиенту
         photonView.RPC("SpawnSlavePlayer", RpcTarget.Others, slaveSpawnPoint.position);
@@ -271,11 +271,24 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     [PunRPC]
     void SpawnSlavePlayer(Vector3 spawnPosition)
     {
-        GameObject playerInstance = PhotonNetwork.Instantiate(player.name, spawnPosition, Quaternion.identity);
-        playerNameTagManager.AssignNameTag(playerInstance);
+        PhotonNetwork.Instantiate(player.name, spawnPosition, Quaternion.identity);
     }
 
+    private void SetTagOverLocalPlayer()
+    {
+        if (photonView.IsMine)
+        {
+            // Создаем текстовое поле из префаба
+            playerText = Instantiate(textPrefab, transform.position, Quaternion.identity);
 
+            // Устанавливаем позицию текстового поля над игроком (например, над его головой)
+            Vector3 offset = new Vector3(0f, 2f, 0f); // Это смещение для позиции текстового поля
+            playerText.transform.position = transform.position + offset;
+
+            // Закрепляем текстовое поле к игроку, чтобы оно двигалось вместе с ним
+            playerText.transform.parent = transform;
+        }
+    }
 
 
 }
