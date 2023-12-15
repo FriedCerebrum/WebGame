@@ -10,6 +10,7 @@ public class Entity2 : MonoBehaviourPunCallbacks
     public Collider2D col;
     public ColoredFlash2 cf;
     public bool HasFPressed = false;
+    RoundManager roundManager;
 
     public int hp;
     private bool canDie = true; // Внешний флажок для разрешения вызова Die()
@@ -55,15 +56,15 @@ public class Entity2 : MonoBehaviourPunCallbacks
         rb.velocity = Vector3.zero;
         SetCantDie(); // Запрещаем дальнейшие вызовы Die()
 
-        //if (PhotonNetwork.IsMasterClient)
-        //{
+        if (PhotonNetwork.IsMasterClient)
+        {
 
-        //    StartCoroutine(WaitAndStartNewRound());
-        //}
-        //else
-        //{
-            
-        //}
+            StartCoroutine(WaitAndStartNewRound());
+        }
+        else
+        {
+
+        }
     }
 
     public void ResetCanDie()
@@ -74,12 +75,11 @@ public class Entity2 : MonoBehaviourPunCallbacks
     {
         canDie = false;
     }
-
-    //private IEnumerator WaitAndStartNewRound()
-    //{
-    //    yield return new WaitForSeconds(2.0f);
-    //    roundManager.StartNewRound();
-    //}
+    private IEnumerator WaitAndStartNewRound()      // Если этот метод упихать под RPC, то StartNewRound вызовется только на машине, откуда вызывался
+    {                                               // при условии метки all.
+        yield return new WaitForSeconds(2.0f);
+        roundManager.StartNewRound();
+    }
 
     public void TakeDamage(int damage)
     {

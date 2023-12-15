@@ -2,28 +2,30 @@ using Photon.Pun;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class AttachTextAbovePlayer : MonoBehaviourPun
 {
-    public GameObject textPrefab; // Ссылка на текстовое поле, которое нужно отобразить
 
-    private GameObject playerText; // Ссылка на текстовое поле, которое будет отображаться
+    [SerializeField]
+    private Text playerText; // Ссылка на текстовый элемент UI
 
     void Start()
     {
         // Проверяем, является ли объект нашим игроком (photon.isMine)
         if (photonView.IsMine)
         {
-            // Создаем текстовое поле из префаба
-            playerText = Instantiate(textPrefab, transform.position, Quaternion.identity);
-
-            // Устанавливаем позицию текстового поля над игроком (например, над его головой)
-            Vector3 offset = new Vector3(0f, 2f, 0f); // Это смещение для позиции текстового поля
-            playerText.transform.position = transform.position + offset;
-
-            // Закрепляем текстовое поле к игроку, чтобы оно двигалось вместе с ним
-            playerText.transform.SetParent(transform, false); // Установка false для worldPositionStays
+            if (playerText != null)
+            {
+                // Устанавливаем позицию текстового элемента UI над игроком (например, над его головой)
+                Vector3 offset = new Vector3(0f, 2f, 0f); // Это смещение для позиции текстового элемента UI
+                playerText.transform.position = transform.position + offset;
+            }
+            else
+            {
+                Debug.LogError("Text object not assigned in the Inspector!");
+            }
         }
     }
 }
