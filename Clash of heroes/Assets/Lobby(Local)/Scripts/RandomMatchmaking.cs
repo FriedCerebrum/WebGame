@@ -165,7 +165,7 @@ public class MatchmakingManager : MonoBehaviourPunCallbacks
     void LoadArena()
     {
         Debug.Log("Загрузка сцены: SampleScene");
-        PhotonNetwork.LoadLevel("Sandbox");
+        PhotonNetwork.LoadLevel("ggwp");
     }
 
 

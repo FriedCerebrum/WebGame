@@ -55,6 +55,8 @@ MonoBehaviour:
   - StartNewRound
   - AddtoRoundCounter
   - WaitAndStartNewRound
+  - EndGame
+  - AddPlayer
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
