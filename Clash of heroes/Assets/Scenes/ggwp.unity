@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 928140347}
   - component: {fileID: 928140349}
   - component: {fileID: 928140348}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -637,7 +637,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1029676138}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArenaBorders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -875,7 +875,7 @@ GameObject:
   - component: {fileID: 1317160807}
   - component: {fileID: 1317160809}
   - component: {fileID: 1317160808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1012,7 +1012,7 @@ GameObject:
   - component: {fileID: 1728859432}
   - component: {fileID: 1728859434}
   - component: {fileID: 1728859433}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1118,7 +1118,7 @@ GameObject:
   - component: {fileID: 1991189102}
   - component: {fileID: 1991189104}
   - component: {fileID: 1991189103}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
