@@ -13,50 +13,75 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     public GameObject player;
     public float minX, minY, maxX, maxY;
     public Transform[] spawnPoints;
-    private List<GameObject> playerObjects = new List<GameObject>();
+    private List<GameObject> playerObjects;
     void Start()
     {
 
-
+        playerObjects = new List<GameObject>();
 
     }
-    [PunRPC]
-    public void AddPlayer(GameObject playerObject)
+
+    public void SpawnPlayers()      //Вызывается только на мастере
+    {  if (PhotonNetwork.IsMasterClient)
+        {
+            Transform masterSpawnPoint, slaveSpawnPoint;
+
+            // Выбор случайных точек спавна
+            int masterIndex = Random.Range(0, spawnPoints.Length);
+            int slaveIndex = (masterIndex + 1) % spawnPoints.Length;
+
+            masterSpawnPoint = spawnPoints[masterIndex];
+            slaveSpawnPoint = spawnPoints[slaveIndex];
+
+            // Спавн мастер-клиента
+            GameObject masterPlayer = PhotonNetwork.Instantiate(player.name, masterSpawnPoint.position, Quaternion.identity);
+            AddMasterPlayer(masterPlayer);
+            Entity2 masterEntity = masterPlayer.GetComponent<Entity2>();
+            if (masterEntity != null)
+            {
+                masterEntity.ResetCanDie();
+            }
+
+
+            // Отправка данных о точке спавна slave-клиенту
+            photonView.RPC("SpawnSlavePlayer", RpcTarget.Others, slaveSpawnPoint.position);       // целью этого RPC запроса явлется slave клиент.
+
+            photonView.RPC("AddtoRoundCounter", RpcTarget.All);   //Добавляем на всех клиентах к счётчику единицу
+        }
+        else
+        {
+            return;
+        }
+    }
+
+
+    public void AddMasterPlayer(GameObject playerObject)                          //вызов только на мастер клиенте им самим
     {
         if (!playerObjects.Contains(playerObject))
         {
             playerObjects.Add(playerObject);
         }
     }
-
-    public void SpawnPlayers()      //Вызывается только на мастере
+    [PunRPC]
+    public void AddSlavePlayer(GameObject playerObject)                            //Вызов только на мастер клиенте ОТ Slave
     {
-        Transform masterSpawnPoint, slaveSpawnPoint;
+        // Получаем всех игроков в сцене
+        GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
 
-        // Выбор случайных точек спавна
-        int masterIndex = Random.Range(0, spawnPoints.Length);
-        int slaveIndex = (masterIndex + 1) % spawnPoints.Length;
-
-        masterSpawnPoint = spawnPoints[masterIndex];
-        slaveSpawnPoint = spawnPoints[slaveIndex];
-
-        // Спавн мастер-клиента
-        GameObject masterPlayer = PhotonNetwork.Instantiate(player.name, masterSpawnPoint.position, Quaternion.identity);
-        AddPlayer(masterPlayer);
-        Entity2 masterEntity = masterPlayer.GetComponent<Entity2>();
-        if (masterEntity != null)
+        // Ищем среди них slave игрока и добавляем его, если не найден
+        foreach (var SlavePlayer in allPlayers)
         {
-            masterEntity.ResetCanDie();
+            PhotonView pv = SlavePlayer.GetComponent<PhotonView>();
+            if (pv != null && !pv.IsMine)
+            {
+                // Этот игрок не принадлежит мастер-клиенту, следовательно, он является slave
+                if (!playerObjects.Contains(SlavePlayer))
+                {
+                    playerObjects.Add(SlavePlayer);
+                }
+            }
         }
-
-
-        // Отправка данных о точке спавна slave-клиенту
-        photonView.RPC("SpawnSlavePlayer", RpcTarget.Others, slaveSpawnPoint.position);       // целью этого RPC запроса явлется slave клиент.
-
-        photonView.RPC("AddtoRoundCounter", RpcTarget.All);   //Добавляем на всех клиентах к счётчику единицу
-
     }
-
 
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
@@ -79,10 +104,13 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    void SpawnSlavePlayer(Vector3 spawnPosition)                           //Вызов только у slave
+    void SpawnSlavePlayer(Vector3 spawnPosition) // Вызов только у slave
     {
         GameObject slavePlayer = PhotonNetwork.Instantiate(player.name, spawnPosition, Quaternion.identity);
-        photonView.RPC("AddPlayer",RpcTarget.MasterClient, slavePlayer);
+        string slavePlayerId = slavePlayer.name; // Используйте имя или другой уникальный идентификатор
+
+        photonView.RPC("AddSlavePlayer", RpcTarget.MasterClient);
+
         Entity2 slaveEntity = slavePlayer.GetComponent<Entity2>();
         if (slaveEntity != null)
         {
