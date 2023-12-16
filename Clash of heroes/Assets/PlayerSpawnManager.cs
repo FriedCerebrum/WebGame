@@ -13,11 +13,11 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     public GameObject player;
     public float minX, minY, maxX, maxY;
     public Transform[] spawnPoints;
-    private List<GameObject> playerObjects;
+    private List<GameObject> playerObjects = new List<GameObject>();
     void Start()
     {
 
-        playerObjects = new List<GameObject>();
+        
 
     }
 
@@ -117,15 +117,6 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
             slaveEntity.ResetCanDie();
         }
     }
-
-    //вызывается только на мастере
-    //public void RemovePlayerobjects()                     
-    //{
-    //    //GameObject playerObjectToDelete = player;
-    //    //PhotonNetwork.Destroy(playerObjectToDelete);
-    //    RemoveAllPlayers();
-    //}
-
     public void RemoveAllPlayers() // вызывается только на мастере
     {
         bool isFirstCall = true; // Переменная isFirstCall определена внутри метода
