@@ -8,16 +8,15 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     //public GameObject[] spawnPoints; // Массив точек спавна
     //private Entity2 entity2;
     PhotonView view;
+    RoundManager roundManager;
     public GameObject player;
     public float minX, minY, maxX, maxY;
     public Transform[] spawnPoints;
     void Start()
     {
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-            SpawnPlayers();              //Этот метод вызывает ТОЛЬКО мастер. Ни в коем случае не slave.
-        }
+
+
     }
 
     public void SpawnPlayers()      //Вызывается только на мастере

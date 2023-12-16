@@ -14,30 +14,14 @@ public class Entity2 : MonoBehaviourPunCallbacks
 
     public int hp;
     private bool canDie = false; // Внешний флажок для разрешения вызова Die()
-
-    //private RoundManager roundManager;
-
     void Start()
     {
         hp = maxHp;
-        //roundManager = FindObjectOfType<RoundManager>();
+        roundManager = FindObjectOfType<RoundManager>();
     }
 
     void Update()
     {
-        if (photonView.IsMine)
-        {
-            if (Input.GetKeyDown(KeyCode.F) && !HasFPressed && gameObject.layer == LayerMask.NameToLayer("Player"))
-            {
-                HurtMe(25);
-                HasFPressed = true;
-            }
-            if (!Input.GetKeyDown(KeyCode.F))
-            {
-                HasFPressed = false;
-            }
-        }
-
         if (hp <= 0 && canDie) // Проверяем флажок canDie
         {
             Die();
@@ -56,15 +40,7 @@ public class Entity2 : MonoBehaviourPunCallbacks
         rb.velocity = Vector3.zero;
         SetCantDie(); // Запрещаем дальнейшие вызовы Die()
 
-        if (PhotonNetwork.IsMasterClient)
-        {
-
-            StartCoroutine(WaitAndStartNewRound());
-        }
-        else
-        {
-
-        }
+        StartCoroutine(WaitAndStartNewRound());
     }
 
     public void ResetCanDie()
@@ -75,11 +51,17 @@ public class Entity2 : MonoBehaviourPunCallbacks
     {
         canDie = false;
     }
-    [PunRPC]
     private IEnumerator WaitAndStartNewRound()      // Если этот метод упихать под RPC, то StartNewRound вызовется только на машине, откуда вызывался
-    {                                               // при условии метки all.
-        yield return new WaitForSeconds(2.0f);
-        roundManager.StartNewRound();
+    {   if (PhotonNetwork.IsMasterClient)
+        {
+            yield return new WaitForSeconds(2.0f);
+            roundManager.StartNewRound();
+        }
+        else
+        {
+            yield return new WaitForSeconds(2.0f);
+            photonView.RPC("StartNewRound", RpcTarget.MasterClient);
+        }
     }
 
     public void TakeDamage(int damage)
