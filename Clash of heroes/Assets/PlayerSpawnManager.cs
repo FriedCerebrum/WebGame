@@ -13,7 +13,9 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     public GameObject player;
     public float minX, minY, maxX, maxY;
     public Transform[] spawnPoints;
-    private List<GameObject> playerObjects = new List<GameObject>();
+    private List<GameObject> playerObjects = new List<GameObject>();           // В этом списке хранится два GameObject игроков.
+    private GameObject slavePlayer;                                            // GameObject slave-плеера.
+    private GameObject masterPlayer;                                           //Аналогично для мастера
     void Start()
     {
 
@@ -34,7 +36,7 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
             slaveSpawnPoint = spawnPoints[slaveIndex];
 
             // Спавн мастер-клиента
-            GameObject masterPlayer = PhotonNetwork.Instantiate(player.name, masterSpawnPoint.position, Quaternion.identity);
+            masterPlayer = PhotonNetwork.Instantiate(player.name, masterSpawnPoint.position, Quaternion.identity);
             AddMasterPlayer(masterPlayer);
             Entity2 masterEntity = masterPlayer.GetComponent<Entity2>();
             if (masterEntity != null)
@@ -63,7 +65,7 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
         }
     }
     [PunRPC]
-    public void AddSlavePlayer()                            //Вызов только на мастер клиенте ОТ Slave
+    public void AddSlavePlayer()                            //Вызов только на мастер клиенте ОТ Slave, для добавления того в список
     {
         // Получаем всех игроков в сцене
         GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
@@ -104,12 +106,10 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    void SpawnSlavePlayer(Vector3 spawnPosition) // Вызов только у slave
+    void SpawnSlavePlayer(Vector3 spawnPosition) // Вызывается только у slave от мастер-клиента
     {
         Debug.Log("SpawnSlavePlayer вызван");
-        GameObject slavePlayer = PhotonNetwork.Instantiate(player.name, spawnPosition, Quaternion.identity);
-        string slavePlayerId = slavePlayer.name; // Используйте имя или другой уникальный идентификатор
-
+        slavePlayer = PhotonNetwork.Instantiate(player.name, spawnPosition, Quaternion.identity);
         photonView.RPC("AddSlavePlayer", RpcTarget.MasterClient);
 
         Entity2 slaveEntity = slavePlayer.GetComponent<Entity2>();
@@ -121,7 +121,7 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
 
     private bool isFirstCall = true; // Переменная перенесена на уровень класса
 
-    public void RemoveAllPlayers() // вызывается только на мастере
+    public void RemoveAllPlayers() // вызывается только на мастере в методе спавна, который вызывается каждый раз при старте раунда
     {
         Debug.Log("RemoveAllPlayers() Вызван.");
 
@@ -131,11 +131,17 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
             return; // Ничего не делать при первом вызове
         }
 
-        foreach (var player in new List<GameObject>(playerObjects))
+        else
         {
-            PhotonNetwork.Destroy(player);
+            PhotonNetwork.Destroy(masterPlayer);
+            photonView.RPC("RemoveSlavePlayer", RpcTarget.Others);
+            playerObjects.Clear();
         }
-        playerObjects.Clear();
+    }
+    [PunRPC]
+    public void RemoveSlavePlayer()                          //Вызывается мастером у slave в момент очистки игроков
+    {
+        PhotonNetwork.Destroy(slavePlayer);
     }
 
 

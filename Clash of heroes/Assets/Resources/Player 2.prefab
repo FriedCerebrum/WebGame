@@ -420,7 +420,7 @@ MonoBehaviour:
   attackRange: 1.08
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 64
   attackSpeed: 0.3
   pushForce: 7
   decreaseFactor: 0.9
@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 604d655b5541a1a4ba6f624df890e247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 135
+  maxHp: 200
   animator: {fileID: 2374364986085431884}
   rb: {fileID: 5337183022921984604}
   col: {fileID: 6871537629065720682}
@@ -469,8 +469,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42582dd7dc33df543b49cd943bc9bc35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 1200
-  m_CrouchSpeed: 0.36
+  m_JumpForce: 400
+  m_CrouchSpeed: 0.2
   m_MovementSmoothing: 0.025
   m_AirControl: 1
   m_WhatIsGround:
