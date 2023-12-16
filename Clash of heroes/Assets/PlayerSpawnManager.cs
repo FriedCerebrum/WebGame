@@ -106,6 +106,7 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     [PunRPC]
     void SpawnSlavePlayer(Vector3 spawnPosition) // Вызов только у slave
     {
+        Debug.Log("SpawnSlavePlayer вызван");
         GameObject slavePlayer = PhotonNetwork.Instantiate(player.name, spawnPosition, Quaternion.identity);
         string slavePlayerId = slavePlayer.name; // Используйте имя или другой уникальный идентификатор
 
@@ -117,9 +118,12 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
             slaveEntity.ResetCanDie();
         }
     }
+
+    private bool isFirstCall = true; // Переменная перенесена на уровень класса
+
     public void RemoveAllPlayers() // вызывается только на мастере
     {
-        bool isFirstCall = true; // Переменная isFirstCall определена внутри метода
+        Debug.Log("RemoveAllPlayers() Вызван.");
 
         if (isFirstCall)
         {
