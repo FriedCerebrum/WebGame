@@ -63,7 +63,7 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
         }
     }
     [PunRPC]
-    public void AddSlavePlayer(GameObject playerObject)                            //Вызов только на мастер клиенте ОТ Slave
+    public void AddSlavePlayer()                            //Вызов только на мастер клиенте ОТ Slave
     {
         // Получаем всех игроков в сцене
         GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
