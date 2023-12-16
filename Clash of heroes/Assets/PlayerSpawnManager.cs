@@ -6,16 +6,13 @@ using UnityEngine.SceneManagement;
 public class PlayerSpawnManager : MonoBehaviourPunCallbacks
 {
     //public GameObject[] spawnPoints; // Массив точек спавна
-    private Entity2 entity2;
+    //private Entity2 entity2;
     PhotonView view;
     public GameObject player;
     public float minX, minY, maxX, maxY;
     public Transform[] spawnPoints;
     void Start()
     {
-
-        view = GetComponent<PhotonView>();
-        // Ищем компонент Entity2 на этом же объекте
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -72,14 +69,18 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    void SpawnSlavePlayer(Vector3 spawnPosition)
+    void SpawnSlavePlayer(Vector3 spawnPosition)                           //Вызов только у slave
     {
-        PhotonNetwork.Instantiate(player.name, spawnPosition, Quaternion.identity);
-        entity2.ResetCanDie();
+        GameObject slavePlayer = PhotonNetwork.Instantiate(player.name, spawnPosition, Quaternion.identity);
+        Entity2 slaveEntity = slavePlayer.GetComponent<Entity2>();
+        if (slaveEntity != null)
+        {
+            slaveEntity.ResetCanDie();
+        }
     }
 
     [PunRPC]
-    public void RemovePlayerobjects()
+    public void RemovePlayerobjects()                     //Вызывается У ВСЕХ в методе начала нового раунда
     {
         GameObject playerObjectToDelete = player;
         PhotonNetwork.Destroy(playerObjectToDelete);

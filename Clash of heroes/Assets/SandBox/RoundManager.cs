@@ -8,7 +8,6 @@ public class RoundManager : MonoBehaviourPun
 {
     public int totalRounds = 3;
     private int currentRound = 0;
-    public Text roundText;
     PlayerSpawnManager playerSpawnManager;
 
     public GameObject statisticsPanel; // Панель со статистикой
@@ -142,9 +141,10 @@ public class RoundManager : MonoBehaviourPun
     }
 
     [PunRPC]
-    public void AddtoRoundCounter()
+    public void AddtoRoundCounter()         //Вызывается у всех клиентов
     {
         currentRound += 1;
+        overAllRoundsText.text = currentRound.ToString();
     }
 
 
