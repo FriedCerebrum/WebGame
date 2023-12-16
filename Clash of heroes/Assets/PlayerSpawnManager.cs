@@ -79,10 +79,17 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     }
 
     [PunRPC]
-    public void RemovePlayerobjects()                     //Вызывается У ВСЕХ в методе начала нового раунда
+    public void RemovePlayerobjects()
     {
-        GameObject playerObjectToDelete = player;
-        PhotonNetwork.Destroy(playerObjectToDelete);
+        bool isRemovePlayerObjectsCalled = false;
+
+        if (!isRemovePlayerObjectsCalled)
+        {
+            GameObject playerObjectToDelete = player;
+            PhotonNetwork.Destroy(playerObjectToDelete);
+            isRemovePlayerObjectsCalled = true;
+        }
     }
+
 
 }
