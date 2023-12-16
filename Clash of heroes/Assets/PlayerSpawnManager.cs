@@ -1,5 +1,6 @@
 using Photon.Pun;
 using Photon.Realtime;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,11 +13,20 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     public GameObject player;
     public float minX, minY, maxX, maxY;
     public Transform[] spawnPoints;
+    private List<GameObject> playerObjects = new List<GameObject>();
     void Start()
     {
 
 
 
+    }
+    [PunRPC]
+    public void AddPlayer(GameObject playerObject)
+    {
+        if (!playerObjects.Contains(playerObject))
+        {
+            playerObjects.Add(playerObject);
+        }
     }
 
     public void SpawnPlayers()      //Вызывается только на мастере
@@ -32,6 +42,7 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
 
         // Спавн мастер-клиента
         GameObject masterPlayer = PhotonNetwork.Instantiate(player.name, masterSpawnPoint.position, Quaternion.identity);
+        AddPlayer(masterPlayer);
         Entity2 masterEntity = masterPlayer.GetComponent<Entity2>();
         if (masterEntity != null)
         {
@@ -71,6 +82,7 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     void SpawnSlavePlayer(Vector3 spawnPosition)                           //Вызов только у slave
     {
         GameObject slavePlayer = PhotonNetwork.Instantiate(player.name, spawnPosition, Quaternion.identity);
+        photonView.RPC("AddPlayer",RpcTarget.MasterClient, slavePlayer);
         Entity2 slaveEntity = slavePlayer.GetComponent<Entity2>();
         if (slaveEntity != null)
         {
@@ -78,17 +90,29 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
         }
     }
 
-    [PunRPC]
-    public void RemovePlayerobjects()
-    {
-        bool isRemovePlayerObjectsCalled = false;
+    //вызывается только на мастере
+    //public void RemovePlayerobjects()                     
+    //{
+    //    //GameObject playerObjectToDelete = player;
+    //    //PhotonNetwork.Destroy(playerObjectToDelete);
+    //    RemoveAllPlayers();
+    //}
 
-        if (!isRemovePlayerObjectsCalled)
+    public void RemoveAllPlayers() // вызывается только на мастере
+    {
+        bool isFirstCall = true; // Переменная isFirstCall определена внутри метода
+
+        if (isFirstCall)
         {
-            GameObject playerObjectToDelete = player;
-            PhotonNetwork.Destroy(playerObjectToDelete);
-            isRemovePlayerObjectsCalled = true;
+            isFirstCall = false;
+            return; // Ничего не делать при первом вызове
         }
+
+        foreach (var player in new List<GameObject>(playerObjects))
+        {
+            PhotonNetwork.Destroy(player);
+        }
+        playerObjects.Clear();
     }
 
 

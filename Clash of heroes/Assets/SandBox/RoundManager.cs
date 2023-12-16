@@ -43,7 +43,7 @@ public class RoundManager : MonoBehaviourPun
     [PunRPC]
     public void StartNewRound()                       // ÂÛÇÎÂ ÒÎËÜÊÎ Ó ÌÀÑÒÅÐÀ
     {
-        photonView.RPC("RemovePlayerobjects", RpcTarget.All);
+        playerSpawnManager.RemoveAllPlayers();
         //playerSpawnManager.RemovePlayerobjects();
         if (currentRound >= totalRounds)
         {
