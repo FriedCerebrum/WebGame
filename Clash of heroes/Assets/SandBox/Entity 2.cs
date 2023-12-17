@@ -22,7 +22,16 @@ public class Entity2 : MonoBehaviourPunCallbacks
         hp = maxHp;
         roundManager = FindObjectOfType<RoundManager>();
         gameManager = FindObjectOfType<GameManager>();
-        gameManagerView = gameManager.GetComponent<PhotonView>();
+        GameObject gameManagerObject = GameObject.Find("GameManager");
+        if (gameManagerObject != null)
+        {
+            // Получаем компонент PhotonView из найденного объекта
+            gameManagerView = gameManagerObject.GetComponent<PhotonView>();
+        }
+        else
+        {
+            Debug.LogError("Объект GameManager не найден в сцене!");
+        }
     }
 
     void Update()
