@@ -43,10 +43,10 @@ public class Entity2 : MonoBehaviourPunCallbacks
         rb.velocity = Vector3.zero;
         SetCantDie(); // Запрещаем дальнейшие вызовы Die()
 
-        StartCoroutine(WaitAndStartNewRound());
         PhotonView gameManagerView = gameManager.GetComponent<PhotonView>();
         gameManagerView.RPC("AddToRoundWinnerCounter", RpcTarget.All, roundManager.RemotePlayerName);
-
+        Debug.Log("RemotePlayerName в Entity2: " + roundManager.RemotePlayerName);
+        StartCoroutine(WaitAndStartNewRound());
 
         if (photonView.IsMine)
         {
