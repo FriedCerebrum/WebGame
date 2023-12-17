@@ -60,7 +60,7 @@ public class RoundManager : MonoBehaviourPun
     public void StartNewRound()                       // ÂÛÇÎÂ ÒÎËÜÊÎ Ó ÌÀÑÒÅÐÀ
     {
         playerSpawnManager.RemoveAllPlayers();
-        if (currentRound >= totalRounds)
+        if (currentRound > totalRounds)
         {
             photonView.RPC("EndGame", RpcTarget.All);
             return;
@@ -71,6 +71,7 @@ public class RoundManager : MonoBehaviourPun
     private void EndGame()                          //Âûçûâàåòñÿ ó âñåõ ïî îêîí÷àíèþ èãðû
     {
         GameEnded = true;
+        Debug.Log("EndGame() âûçâàí");
 
         string playerId = PlayerPrefs.GetString("PlayerId", "defaultPlayerId");
         if(LocalPlayerWins>RemotePlayerWins)
