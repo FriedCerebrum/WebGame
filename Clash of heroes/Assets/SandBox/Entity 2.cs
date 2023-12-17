@@ -1,6 +1,7 @@
 using UnityEngine;
 using Photon.Pun;
 using System.Collections;
+using Photon.Pun.Demo.PunBasics;
 
 public class Entity2 : MonoBehaviourPunCallbacks
 {
@@ -11,6 +12,7 @@ public class Entity2 : MonoBehaviourPunCallbacks
     public ColoredFlash2 cf;
     public bool HasFPressed = false;
     RoundManager roundManager;
+    GameManager gameManager;
 
     public int hp;
     private bool canDie = false; // Внешний флажок для разрешения вызова Die()
@@ -18,6 +20,7 @@ public class Entity2 : MonoBehaviourPunCallbacks
     {
         hp = maxHp;
         roundManager = FindObjectOfType<RoundManager>();
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     void Update()
@@ -41,7 +44,9 @@ public class Entity2 : MonoBehaviourPunCallbacks
         SetCantDie(); // Запрещаем дальнейшие вызовы Die()
 
         StartCoroutine(WaitAndStartNewRound());
-        photonView.RPC("AddToRoundWinnerCounter",RpcTarget.All,roundManager.GetRemotePlayerNickname());
+        PhotonView gameManagerView = gameManager.GetComponent<PhotonView>();
+        gameManagerView.RPC("AddToRoundWinnerCounter", RpcTarget.All, roundManager.GetRemotePlayerNickname());
+
 
         if (photonView.IsMine)
         {
