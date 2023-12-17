@@ -6,6 +6,8 @@ using System.Collections.Generic;
 using Photon.Realtime;
 using Firebase;
 using Firebase.Firestore;
+using System.Runtime.CompilerServices;
+using UnityEngine.WSA;
 
 public class RoundManager : MonoBehaviourPun
 {
@@ -19,6 +21,17 @@ public class RoundManager : MonoBehaviourPun
     public Text RemotePlayerScoreText; // Текст для отображения счета второго игрока. Он всегда удалённый
     public Text overAllRoundsText;  //Текст для общего счета раундов
     public Text RemoteNicknameText; //Для хранения никнейма удалённого игрока
+
+    public Text WinnerWinsCount;
+    public Text WinnerMoney;
+
+    public Text LoserWinsCount;
+    public Text LoserMoney;
+
+    public GameObject winnerpanel;
+    public GameObject loserpanel;
+
+    public bool GameEnded=false;
 
 
     private int LocalPlayerWins;
@@ -58,6 +71,8 @@ public class RoundManager : MonoBehaviourPun
     [PunRPC]
     private void EndGame()                          //Вызывается у всех по окончанию игры
     {
+        GameEnded = true;
+
         string playerId = PlayerPrefs.GetString("PlayerId", "defaultPlayerId");
         statisticsPanel.SetActive(true);
         if(LocalPlayerWins>RemotePlayerWins)
@@ -66,6 +81,8 @@ public class RoundManager : MonoBehaviourPun
             int wins = 1;
             UpdatePlayerField(playerId, "Wins", wins); // Увеличить количество побед на wins
             UpdatePlayerField(playerId, "Money", AddMoney); // Увеличить количество денег на AddMoney
+            DisplayWinnerStats(LocalPlayerWins, AddMoney);
+
 
         }
         if(RemotePlayerWins>LocalPlayerWins)
@@ -74,10 +91,10 @@ public class RoundManager : MonoBehaviourPun
             int losses = 1;
             UpdatePlayerField(playerId, "Losses", losses); // Увеличить количество поражений на losses
             UpdatePlayerField(playerId, "Money", AddMoney); // Увеличить количество денег на AddMoney
-
+            DisplayLoserStats(LocalPlayerWins, AddMoney);
 
         }
-        SceneManager.LoadScene("Lobby(Local)");
+        
     }
     [PunRPC]
     public void AddtoRoundCounter()         //Вызывается у всех клиентов
@@ -168,10 +185,33 @@ public class RoundManager : MonoBehaviourPun
                 Debug.LogError("Could not resolve Firebase dependencies: " + dependencyTask.Exception);
             }
         });
+
+        
     }
 
+    private void DisplayWinnerStats(int wins, int money)
+    {
+        winnerpanel.SetActive(true);
+        WinnerWinsCount.text=wins.ToString();
+        WinnerMoney.text=money.ToString();
+    }
 
+    private void DisplayLoserStats(int wins, int money)
+    {
+        loserpanel.SetActive(true);
+        LoserWinsCount.text = wins.ToString();
+        LoserMoney.text = money.ToString();
+    }
 
+    public void GoToLobby()
+    {
+       if (PhotonNetwork.IsMasterClient)
+        {
 
+            PhotonNetwork.DestroyAll();
+
+        }
+        SceneManager.LoadScene("Lobby(Local)");
+    }
 
 }

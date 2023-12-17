@@ -89,7 +89,10 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
         Debug.Log("Player left room: " + otherPlayer.NickName);
-
+        if (roundManager.GameEnded == true)
+        {
+            return;
+        }
         // Проверяем количество оставшихся игроков в комнате
         if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
         {
