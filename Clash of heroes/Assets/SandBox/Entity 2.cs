@@ -45,7 +45,7 @@ public class Entity2 : MonoBehaviourPunCallbacks
 
         StartCoroutine(WaitAndStartNewRound());
         PhotonView gameManagerView = gameManager.GetComponent<PhotonView>();
-        gameManagerView.RPC("AddToRoundWinnerCounter", RpcTarget.All, roundManager.GetRemotePlayerNickname());
+        gameManagerView.RPC("AddToRoundWinnerCounter", RpcTarget.All, roundManager.RemotePlayerName);
 
 
         if (photonView.IsMine)

@@ -35,7 +35,7 @@ public class RoundManager : MonoBehaviourPun
 
     private int LocalPlayerWins;
     private int RemotePlayerWins;
-    private string RemotePlayerName;          
+    public string RemotePlayerName;          
     private string LocalPlayerName;
 
 
