@@ -70,8 +70,7 @@ public class Entity2 : MonoBehaviourPunCallbacks
         }
         else
         {
-            yield return new WaitForSeconds(2.0f);
-            photonView.RPC("StartNewRound", RpcTarget.MasterClient);
+            photonView.RPC("WaitAndStartNewRound", RpcTarget.MasterClient);
         }
     }
 
