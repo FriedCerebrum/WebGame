@@ -62,6 +62,7 @@ public class Entity2 : MonoBehaviourPunCallbacks
     {
         canDie = false;
     }
+    [PunRPC]
     private IEnumerator WaitAndStartNewRound()      // Если этот метод упихать под RPC, то StartNewRound вызовется только на машине, откуда вызывался
     {   if (PhotonNetwork.IsMasterClient)
         {
