@@ -15,7 +15,6 @@ public class RoundManager : MonoBehaviourPun
     private int currentRound = 0;
     PlayerSpawnManager playerSpawnManager;
 
-    public GameObject statisticsPanel; // Панель со статистикой
 
     public Text LocalPlayerScoreText; // Текст для отображения счета первого игрока. Он всегда локальный.
     public Text RemotePlayerScoreText; // Текст для отображения счета второго игрока. Он всегда удалённый
@@ -74,7 +73,6 @@ public class RoundManager : MonoBehaviourPun
         GameEnded = true;
 
         string playerId = PlayerPrefs.GetString("PlayerId", "defaultPlayerId");
-        statisticsPanel.SetActive(true);
         if(LocalPlayerWins>RemotePlayerWins)
         {
             int AddMoney = 100;
