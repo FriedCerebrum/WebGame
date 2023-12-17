@@ -94,7 +94,7 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
             return;
         }
         // ѕровер€ем количество оставшихс€ игроков в комнате
-        if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
+        else if (PhotonNetwork.CurrentRoom.PlayerCount == 1)
         {
             Debug.Log("Only one player left in the room. Redirecting to the lobby.");
             // написать запрос на добавление 1 победы в firebase

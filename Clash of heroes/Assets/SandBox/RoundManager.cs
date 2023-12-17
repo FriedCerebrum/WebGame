@@ -48,7 +48,9 @@ public class RoundManager : MonoBehaviourPun
         }
 
         LocalPlayerName = GetLocalPlayerNickname();
+        Debug.Log("Никнейм локального игрока получен" + LocalPlayerName);
         RemotePlayerName = GetRemotePlayerNickname();
+        Debug.Log("Никнейм удалённого игрока получен" + RemotePlayerName);
         RemoteNicknameText.text = GetRemotePlayerNickname();
 
         if (PhotonNetwork.IsMasterClient)
