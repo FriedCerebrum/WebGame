@@ -122,7 +122,7 @@ public class RoundManager : MonoBehaviourPun
         }
         else
         {
-            Debug.Log("Какая то дичь в AddToRoundWinnerCounter");
+            Debug.LogWarning("Какая то дичь в AddToRoundWinnerCounter");
         }
     }
 
