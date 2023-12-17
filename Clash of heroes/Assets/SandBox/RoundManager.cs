@@ -62,12 +62,15 @@ public class RoundManager : MonoBehaviourPun
     public void StartNewRound()                       // ВЫЗОВ ТОЛЬКО У МАСТЕРА
     {
         playerSpawnManager.RemoveAllPlayers();
-        if (currentRound > totalRounds)
+        if (currentRound >= totalRounds)
         {
             photonView.RPC("EndGame", RpcTarget.All);
-            return;
         }
-        playerSpawnManager.SpawnPlayers();               // ВЫЗОВ ТОЛЬКО У МАСТЕРА
+        else
+        {
+            playerSpawnManager.SpawnPlayers();          // ВЫЗОВ ТОЛЬКО У МАСТЕРА
+        }
+
     }
     [PunRPC]
     private void EndGame()                          //Вызывается у всех по окончанию игры
