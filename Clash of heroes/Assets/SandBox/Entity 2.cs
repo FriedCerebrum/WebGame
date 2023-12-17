@@ -22,7 +22,7 @@ public class Entity2 : MonoBehaviourPunCallbacks
         hp = maxHp;
         roundManager = FindObjectOfType<RoundManager>();
         gameManager = FindObjectOfType<GameManager>();
-        PhotonView gameManagerView = gameManager.GetComponent<PhotonView>();
+        gameManagerView = gameManager.GetComponent<PhotonView>();
     }
 
     void Update()
