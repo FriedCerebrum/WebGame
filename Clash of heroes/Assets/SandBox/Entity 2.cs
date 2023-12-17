@@ -41,6 +41,12 @@ public class Entity2 : MonoBehaviourPunCallbacks
         SetCantDie(); // Запрещаем дальнейшие вызовы Die()
 
         StartCoroutine(WaitAndStartNewRound());
+        photonView.RPC("AddToRoundWinnerCounter",RpcTarget.All,roundManager.GetRemotePlayerNickname());
+
+        if (photonView.IsMine)
+        {
+
+        }
     }
 
     public void ResetCanDie()

@@ -13,6 +13,7 @@ public class PlayerSpawnManager : MonoBehaviourPunCallbacks
     public GameObject player;
     public float minX, minY, maxX, maxY;
     public Transform[] spawnPoints;
+
     private List<GameObject> playerObjects = new List<GameObject>();           // В этом списке хранится два GameObject игроков.
     private GameObject slavePlayer;                                            // GameObject slave-плеера.
     private GameObject masterPlayer;                                           //Аналогично для мастера

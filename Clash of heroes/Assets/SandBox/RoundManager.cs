@@ -3,7 +3,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
-using Photon.Pun.Demo.Asteroids;
+using Photon.Realtime;
+using Firebase;
+using Firebase.Firestore;
 
 public class RoundManager : MonoBehaviourPun
 {
@@ -12,17 +14,17 @@ public class RoundManager : MonoBehaviourPun
     PlayerSpawnManager playerSpawnManager;
 
     public GameObject statisticsPanel; // Панель со статистикой
-    public Text countdownText; // Текст для отображения таймера
-    private float countdownTimer = 5f; // Время таймера
-    private bool isGameEnding = false; // Флаг завершения игры
 
-    public Text player1ScoreText; // Текст для отображения счета первого игрока. Он всегда локальный.
-    public Text player2ScoreText; // Текст для отображения счета второго игрока. Он всегда удалённый
+    public Text LocalPlayerScoreText; // Текст для отображения счета первого игрока. Он всегда локальный.
+    public Text RemotePlayerScoreText; // Текст для отображения счета второго игрока. Он всегда удалённый
     public Text overAllRoundsText;  //Текст для общего счета раундов  
 
-    private int player1Score;
-    private int player2Score;
-    private string localPlayerNickname;
+
+    private int LocalPlayerWins;
+    private int RemotePlayerWins;
+    private string RemotePlayerName;          
+    private string LocalPlayerName;
+
 
     void Start()
     {
@@ -32,8 +34,8 @@ public class RoundManager : MonoBehaviourPun
             Debug.LogError("PlayerSpawnManager not found in the scene!");
         }
 
-        // Установка никнейма локального игрока
-        //localPlayerNickname = PhotonNetwork.LocalPlayer.NickName;
+        LocalPlayerName = GetLocalPlayerNickname();
+        RemotePlayerName = GetRemotePlayerNickname();
 
         if (PhotonNetwork.IsMasterClient)
         {
@@ -44,7 +46,6 @@ public class RoundManager : MonoBehaviourPun
     public void StartNewRound()                       // ВЫЗОВ ТОЛЬКО У МАСТЕРА
     {
         playerSpawnManager.RemoveAllPlayers();
-        //playerSpawnManager.RemovePlayerobjects();
         if (currentRound >= totalRounds)
         {
             photonView.RPC("EndGame", RpcTarget.All);
@@ -53,62 +54,121 @@ public class RoundManager : MonoBehaviourPun
         playerSpawnManager.SpawnPlayers();               // ВЫЗОВ ТОЛЬКО У МАСТЕРА
     }
     [PunRPC]
-    private void EndGame()
+    private void EndGame()                          //Вызывается у всех по окончанию игры
     {
+        string playerId = PlayerPrefs.GetString("PlayerId", "defaultPlayerId");
+        statisticsPanel.SetActive(true);
+        if(LocalPlayerWins>RemotePlayerWins)
+        {
+            int AddMoney = 100;
+            int wins = 1;
+            UpdatePlayerField(playerId, "Wins", wins); // Увеличить количество побед на wins
+            UpdatePlayerField(playerId, "Money", AddMoney); // Увеличить количество денег на AddMoney
+
+        }
+        if(RemotePlayerWins>LocalPlayerWins)
+        {
+            int AddMoney = 20;
+            int losses = 1;
+            UpdatePlayerField(playerId, "Losses", losses); // Увеличить количество поражений на losses
+            UpdatePlayerField(playerId, "Money", AddMoney); // Увеличить количество денег на AddMoney
+
+
+        }
         SceneManager.LoadScene("Lobby(Local)");
     }
-
-
-
-
-
-    //    private string DetermineRoundWinner()
-    //    {
-    //        // Логика определения победителя раунда
-    //        string winnerNickname = "WinnerNickname"; // Замените на реальную логику для получения никнейма победителя
-
-    //        return winnerNickname;
-    //    }
-
-    //    private void UpdatePlayerScore(string playerNickname)
-    //    {
-    //        if (!playerScores.ContainsKey(playerNickname))
-    //        {
-    //            playerScores[playerNickname] = 0;
-    //        }
-    //        playerScores[playerNickname]++;
-    //    }
-
-    //    private void EndGame()
-    //    {
-    //        Debug.Log("Game Over. Total Rounds Played: " + currentRound);
-    //        DisplayFinalStatistics();
-    //        statisticsPanel.SetActive(true);
-    //        isGameEnding = true;
-    //    }
-
-    //    private void DisplayFinalStatistics()
-    //    {
-    //        foreach (var playerScore in playerScores)
-    //        {
-    //            if (playerScore.Key == localPlayerNickname)
-    //            {
-    //                player1ScoreText.text = "Player 1 Score: " + playerScore.Value.ToString();
-    //            }
-    //            else
-    //            {
-    //                player2ScoreText.text = playerScore.Key + " Score: " + playerScore.Value.ToString();
-    //            }
-    //        }
-    //    }
-
-
     [PunRPC]
     public void AddtoRoundCounter()         //Вызывается у всех клиентов
     {
         currentRound += 1;
         overAllRoundsText.text = currentRound.ToString();
     }
+    [PunRPC]
+    public void AddToRoundWinnerCounter(string Nickname)                  //Вызывается у всех клиентов после смерти игрока.
+    {
+        if (Nickname.Equals(LocalPlayerName))
+        {
+            LocalPlayerWins += 1;
+            LocalPlayerScoreText.text = LocalPlayerWins.ToString();
+
+        }
+        if (Nickname.Equals(RemotePlayerName))
+        {
+            RemotePlayerWins += 1;
+            RemotePlayerScoreText.text = RemotePlayerWins.ToString();
+        }
+        else
+        {
+            Debug.Log("Какая то дичь в AddToRoundWinnerCounter");
+        }
+    }
+
+    public string GetLocalPlayerNickname()
+    {
+        if (PhotonNetwork.LocalPlayer == null)
+        {
+            Debug.LogError("Локальный игрок не определен.");
+            return null;
+        }
+
+        return PhotonNetwork.LocalPlayer.CustomProperties["Nickname"].ToString();
+    }
+
+    public string GetRemotePlayerNickname()
+    {
+        if (PhotonNetwork.CurrentRoom == null)
+        {
+            Debug.LogError("Не находимся в комнате.");
+            return null;
+        }
+
+        foreach (var player in PhotonNetwork.PlayerList)
+        {
+            if (player != PhotonNetwork.LocalPlayer)
+            {
+                return player.CustomProperties["Nickname"].ToString();
+            }
+        }
+
+        Debug.LogError("Удаленный игрок не найден.");
+        return null;
+    }
+    public void UpdatePlayerField(string userId, string fieldName, long incrementValue)
+    {
+        FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(dependencyTask =>
+        {
+            if (dependencyTask.Result == DependencyStatus.Available)
+            {
+                FirebaseFirestore db = FirebaseFirestore.DefaultInstance;
+
+                DocumentReference docRef = db.Collection("players").Document(userId);
+
+                // Создаем объект обновления
+                Dictionary<string, object> updates = new Dictionary<string, object>
+            {
+                { fieldName, FieldValue.Increment(incrementValue) } // Увеличиваем значение поля
+            };
+
+                docRef.UpdateAsync(updates).ContinueWith(task =>
+                {
+                    if (task.IsCompleted)
+                    {
+                        Debug.Log($"{fieldName} updated successfully.");
+                    }
+                    else
+                    {
+                        Debug.LogError($"Error updating {fieldName}: " + task.Exception);
+                    }
+                });
+            }
+            else
+            {
+                Debug.LogError("Could not resolve Firebase dependencies: " + dependencyTask.Exception);
+            }
+        });
+    }
+
+
 
 
 
