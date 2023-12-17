@@ -44,14 +44,17 @@ public class Entity2 : MonoBehaviourPunCallbacks
         SetCantDie(); // Запрещаем дальнейшие вызовы Die()
 
         PhotonView gameManagerView = gameManager.GetComponent<PhotonView>();
-        gameManagerView.RPC("AddToRoundWinnerCounter", RpcTarget.All, roundManager.RemotePlayerName);
+        if (gameManagerView != null)
+        {
+            gameManagerView.RPC("AddToRoundWinnerCounter", RpcTarget.All, roundManager.RemotePlayerName);
+        }
+        else
+        {
+            Debug.LogError("PhotonView не найден на объекте GameManager");
+        }
+
         Debug.Log("RemotePlayerName в Entity2: " + roundManager.RemotePlayerName);
         StartCoroutine(WaitAndStartNewRound());
-
-        if (photonView.IsMine)
-        {
-
-        }
     }
 
     public void ResetCanDie()

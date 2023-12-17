@@ -1902,7 +1902,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 2
+  sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &1198893720
@@ -1918,7 +1918,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalRounds: 3
-  statisticsPanel: {fileID: 0}
   LocalPlayerScoreText: {fileID: 1652581572}
   RemotePlayerScoreText: {fileID: 446041458}
   overAllRoundsText: {fileID: 93301395}
@@ -1930,6 +1929,7 @@ MonoBehaviour:
   winnerpanel: {fileID: 1354544521}
   loserpanel: {fileID: 918811375}
   GameEnded: 0
+  RemotePlayerName: 
 --- !u!114 &1198893721
 MonoBehaviour:
   m_ObjectHideFlags: 0
