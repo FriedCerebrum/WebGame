@@ -1550,7 +1550,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalRounds: 3
   statisticsPanel: {fileID: 0}
-  countdownText: {fileID: 0}
   LocalPlayerScoreText: {fileID: 0}
   RemotePlayerScoreText: {fileID: 0}
   overAllRoundsText: {fileID: 93301395}
