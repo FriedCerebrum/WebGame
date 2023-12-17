@@ -17,7 +17,8 @@ public class RoundManager : MonoBehaviourPun
 
     public Text LocalPlayerScoreText; // Текст для отображения счета первого игрока. Он всегда локальный.
     public Text RemotePlayerScoreText; // Текст для отображения счета второго игрока. Он всегда удалённый
-    public Text overAllRoundsText;  //Текст для общего счета раундов  
+    public Text overAllRoundsText;  //Текст для общего счета раундов
+    public Text RemoteNicknameText; //Для хранения никнейма удалённого игрока
 
 
     private int LocalPlayerWins;
@@ -36,6 +37,7 @@ public class RoundManager : MonoBehaviourPun
 
         LocalPlayerName = GetLocalPlayerNickname();
         RemotePlayerName = GetRemotePlayerNickname();
+        RemoteNicknameText.text = GetRemotePlayerNickname();
 
         if (PhotonNetwork.IsMasterClient)
         {
