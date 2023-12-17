@@ -13,6 +13,7 @@ public class Entity2 : MonoBehaviourPunCallbacks
     public bool HasFPressed = false;
     RoundManager roundManager;
     GameManager gameManager;
+    PhotonView gameManagerView;
 
     public int hp;
     private bool canDie = false; // Внешний флажок для разрешения вызова Die()
@@ -21,6 +22,7 @@ public class Entity2 : MonoBehaviourPunCallbacks
         hp = maxHp;
         roundManager = FindObjectOfType<RoundManager>();
         gameManager = FindObjectOfType<GameManager>();
+        PhotonView gameManagerView = gameManager.GetComponent<PhotonView>();
     }
 
     void Update()
@@ -42,8 +44,6 @@ public class Entity2 : MonoBehaviourPunCallbacks
         }
         rb.velocity = Vector3.zero;
         SetCantDie(); // Запрещаем дальнейшие вызовы Die()
-
-        PhotonView gameManagerView = gameManager.GetComponent<PhotonView>();
         if (gameManagerView != null)
         {
             gameManagerView.RPC("AddToRoundWinnerCounter", RpcTarget.All, roundManager.RemotePlayerName);
